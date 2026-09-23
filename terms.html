@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumenic - תקנון ומדיניות פרטיות</title>
+    
+    <!-- Google Fonts: Inter & Noto Sans Hebrew -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Heebo', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f6ff',
+                            100: '#e0edff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: #0b0f17;
+            color: #e2e8f0;
+        }
+        
+        /* Glassmorphism backdrop effect */
+        .glass-header {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .glass-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f17;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+
+        /* Print optimization */
+        @media print {
+            header, nav, .search-container, .action-buttons, footer, #contact-card {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .glass-card {
+                background: none !important;
+                border: none !important;
+                border-bottom: 1px solid #ccc !important;
+                box-shadow: none !important;
+                page-break-inside: avoid;
+            }
+            .text-brand-500, .text-slate-400, .text-slate-300 {
+                color: black !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+    <!-- Sticky Glass Header -->
+    <header class="sticky top-0 z-50 glass-header border-b border-slate-800 transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform duration-200">
+                    <i class="fa-solid fa-lightbulb text-white text-lg"></i>
+                </div>
+                <span class="text-xl font-bold bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                    Lumenic
+                </span>
+            </a>
+
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative py-12 md:py-16 overflow-hidden border-b border-slate-800/60 bg-gradient-to-b from-slate-900/50 to-transparent">
+            <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-900/20 via-transparent to-transparent"></div>
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-500 text-xs font-semibold uppercase tracking-wider mb-4">
+                    מסמך משפטי רשמי
+                </span>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+                    תקנון ומדיניות פרטיות
+                </h1>
+                <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto flex items-center justify-center gap-2">
+                    <i class="fa-regular fa-clock text-brand-500"></i>
+                    <span>עודכן לאחרונה: 14 בספטמבר 2026</span>
+                </p>
+
+                <div class="mt-8 max-w-xl mx-auto search-container">
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="text" id="searchInput" oninput="filterSections()" 
+                               placeholder="חפש בסעיפי התקנון (לדוגמה: עוגיות, ביטולים, אחריות)..." 
+                               class="w-full pl-4 pr-11 py-3 bg-slate-900/80 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent shadow-inner transition-all">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Navigation Sidebar -->
+                <nav class="lg:col-span-4 xl:col-span-3">
+                    <div class="sticky top-24 glass-card rounded-2xl p-5 border border-slate-800">
+                        <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-list-ul text-brand-500"></i>
+                            תוכן עניינים
+                        </h2>
+                        <ul class="space-y-1.5 text-sm" id="indexList">
+                            <li><a href="#section-1" class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">1. מבוא</a></li>
+                            <li><a href="#section-11" class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">11. יצירת קשר</a></li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <!-- Main Legal Text Sections -->
+                <div class="lg:col-span-8 xl:col-span-9 space-y-6" id="sectionsContainer">
+
+                    <!-- Section 1 -->
+                    <section id="section-1" class="term-card glass-card rounded-2xl p-6 sm:p-8 transition-all">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-500/10 text-brand-500 font-bold text-sm border border-brand-500/20">1</span>
+                            <h2 class="text-xl font-bold text-white">מבוא</h2>
+                        </div>
+                        <div class="text-slate-300 space-y-3 leading-relaxed text-sm sm:text-base">
+                            <p>ברוכים הבאים לפלטפורמת <strong>Lumenic</strong> (להלן: "השירות" או "החברה"). תקנון זה ומדיניות הפרטיות המפורטת בו מסדירים את היחסים המשפטיים בין Lumenic לבין כל אדם או ישות המשתמשים בשירותים, באפליקציה או באתר האינטרנט של החברה.</p>
+                            <p>גלישה באתר, הרשמה לשירותים או שימוש באפליקציה מהווים הסכמה מפורשת ובלתי חוזרת לתנאים המפורטים במסמך זה. אם אינך מסכים לתנאי מתנאים אלה, הינך מתבקש לחדול מכל שימוש בשירותי Lumenic באופן מיידי.</p>
+                        </div>
+                    </section>
+
+
+
+                    <!-- Contact Box -->
+                    <div id="contact-card" class="mt-12 rounded-2xl bg-gradient-to-r from-brand-900/40 via-slate-900 to-indigo-950/40 p-8 border border-brand-500/30 text-center sm:text-right flex flex-col sm:flex-row items-center justify-between gap-6">
+                        <div>
+                            <div class="flex items-center gap-3 justify-center sm:justify-start mb-2">
+                                <i class="fa-solid fa-headset text-brand-500 text-xl"></i>
+                                <h3 class="text-lg font-bold text-white">שאלות לגבי התקנון?</h3>
+                            </div>
+                            <p class="text-slate-400 text-sm">צוות Lumenic זמין לכל שאלה או הבהרה בנוגע לתנאי השימוש והפרטיות.</p>
+                        </div>
+                        <a href="mailto:hello@lumenic.app" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-medium text-sm transition-all shadow-lg shadow-brand-600/30 whitespace-nowrap flex items-center gap-2">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span>צרו קשר</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950 py-8 mt-12 text-center text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>© 2026 Lumenic. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <script>
+        function filterSections() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.term-card');
+            
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
