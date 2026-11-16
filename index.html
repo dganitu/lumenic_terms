@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lumenic - תקנון ומדיניות פרטיות</title>
     
-    <!-- Google Fonts: Inter & Noto Sans Hebrew -->
+    <!-- Google Fonts: Heebo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -77,9 +77,17 @@
             background: #334155;
         }
 
+        /* Active Tab Styling */
+        .tab-btn.active {
+            background-color: #2563eb;
+            color: #ffffff;
+            border-color: #3b82f6;
+            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
+        }
+
         /* Print optimization */
         @media print {
-            header, nav, .search-container, .action-buttons, footer, #contact-card {
+            header, nav, .search-container, .tab-container, footer, #contact-card {
                 display: none !important;
             }
             body {
@@ -93,8 +101,11 @@
                 box-shadow: none !important;
                 page-break-inside: avoid;
             }
-            .text-brand-500, .text-slate-400, .text-slate-300 {
+            .text-brand-500, .text-slate-400, .text-slate-300, .text-white {
                 color: black !important;
+            }
+            .doc-group {
+                display: block !important;
             }
         }
     </style>
@@ -114,6 +125,11 @@
                 </span>
             </a>
 
+            <!-- Quick Jump Links (Desktop) -->
+            <div class="hidden sm:flex items-center gap-2 text-xs font-medium">
+                <button onclick="switchTab('terms')" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">תקנון שימוש</button>
+                <button onclick="switchTab('privacy')" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">מדיניות פרטיות</button>
+            </div>
         </div>
     </header>
 
@@ -123,21 +139,38 @@
             <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-900/20 via-transparent to-transparent"></div>
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-500 text-xs font-semibold uppercase tracking-wider mb-4">
-                    מסמך משפטי רשמי
+                    מסמכים משפטיים רשמיים
                 </span>
                 <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
                     תקנון ומדיניות פרטיות
                 </h1>
-                <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto flex items-center justify-center gap-2">
+                <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto flex items-center justify-center gap-2 mb-2">
                     <i class="fa-regular fa-clock text-brand-500"></i>
-                    <span>עודכן לאחרונה: 14 בספטמבר 2026</span>
+                    <span>עודכן לאחרונה: 29 באוקטובר 2026</span>
+                </p>
+                <p class="text-slate-400 text-xs sm:text-sm max-w-2xl mx-auto">
+                    מסמכים אלה מסדירים את השימוש באתר lumenic-ai.com, באפליקציית Lumenic (iOS ו-Android) ובשירותים הנלווים.
                 </p>
 
-                <div class="mt-8 max-w-xl mx-auto search-container">
+                <!-- Document Switcher Tabs -->
+                <div class="mt-8 flex flex-wrap items-center justify-center gap-2.5 tab-container">
+                    <button id="tab-all" onclick="switchTab('all')" class="tab-btn active px-5 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700/80 text-slate-300 text-sm font-semibold transition-all hover:border-slate-500">
+                        <i class="fa-solid fa-layer-group ml-1.5"></i> הצג הכל
+                    </button>
+                    <button id="tab-terms" onclick="switchTab('terms')" class="tab-btn px-5 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700/80 text-slate-300 text-sm font-semibold transition-all hover:border-slate-500">
+                        <i class="fa-solid fa-file-contract ml-1.5"></i> תקנון שימוש (1–24)
+                    </button>
+                    <button id="tab-privacy" onclick="switchTab('privacy')" class="tab-btn px-5 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700/80 text-slate-300 text-sm font-semibold transition-all hover:border-slate-500">
+                        <i class="fa-solid fa-shield-halved ml-1.5"></i> מדיניות פרטיות (1–19)
+                    </button>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="mt-6 max-w-xl mx-auto search-container">
                     <div class="relative">
                         <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
                         <input type="text" id="searchInput" oninput="filterSections()" 
-                               placeholder="חפש בסעיפי התקנון (לדוגמה: עוגיות, ביטולים, אחריות)..." 
+                               placeholder="חפש בתקנון או במדיניות הפרטיות (לדוגמה: קרדיטים, ביטול מנוי, עוגיות, AI)..." 
                                class="w-full pl-4 pr-11 py-3 bg-slate-900/80 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent shadow-inner transition-all">
                     </div>
                 </div>
@@ -150,75 +183,182 @@
                 <!-- Navigation Sidebar -->
                 <nav class="lg:col-span-4 xl:col-span-3">
                     <div class="sticky top-24 glass-card rounded-2xl p-5 border border-slate-800">
-                        <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+                        <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-2">
                             <i class="fa-solid fa-list-ul text-brand-500"></i>
                             תוכן עניינים
                         </h2>
-                        <ul class="space-y-1.5 text-sm" id="indexList">
-                            <li><a href="#section-1" class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">1. מבוא</a></li>
-                            <li><a href="#section-11" class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">11. יצירת קשר</a></li>
-                        </ul>
+                        <div class="max-h-[72vh] overflow-y-auto pr-1 space-y-4" id="indexList">
+                            
+                            <!-- Terms Index -->
+                            <div id="nav-group-terms">
+                                <div class="text-xs font-bold text-brand-500 mb-1.5 px-2">חלק א׳: תקנון Lumenic</div>
+                                <ul class="space-y-1 text-xs sm:text-sm">
+                                    <li><a href="#terms-1" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">1. הגדרות</a></li>
+                                    <li><a href="#terms-2" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">2. פרשנות</a></li>
+                                    <li><a href="#terms-3" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">3. הצדדים וקבלת תנאי התקנון</a></li>
+                                    <li><a href="#terms-4" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">4. כשירות, הרשמה וחשבון</a></li>
+                                    <li><a href="#terms-5" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">5. השירות</a></li>
+                                    <li><a href="#terms-6" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">6. תוכניות, מחירים ותשלום</a></li>
+                                    <li><a href="#terms-7" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">7. קרדיטים</a></li>
+                                    <li><a href="#terms-8" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">8. ניסיון, חידוש אוטומטי וביטול</a></li>
+                                    <li><a href="#terms-9" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">9. החזרים</a></li>
+                                    <li><a href="#terms-10" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">10. כללי שימוש</a></li>
+                                    <li><a href="#terms-11" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">11. תוכן המשתמש</a></li>
+                                    <li><a href="#terms-12" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">12. תוצרים ובינה מלאכותית</a></li>
+                                    <li><a href="#terms-13" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">13. חיבור לרשתות וצד שלישי</a></li>
+                                    <li><a href="#terms-14" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">14. קניין רוחני ורישיון שימוש</a></li>
+                                    <li><a href="#terms-15" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">15. פרטיות</a></li>
+                                    <li><a href="#terms-16" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">16. הודעות ודיוור</a></li>
+                                    <li><a href="#terms-17" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">17. תמיכה ותחזוקה</a></li>
+                                    <li><a href="#terms-18" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">18. השעיה, סיום ומחיקת חשבון</a></li>
+                                    <li><a href="#terms-19" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">19. היעדר מצגים והגבלת אחריות</a></li>
+                                    <li><a href="#terms-20" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">20. שיפוי</a></li>
+                                    <li><a href="#terms-21" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">21. שינוי תנאי השימוש</a></li>
+                                    <li><a href="#terms-22" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">22. דין, סמכות שיפוט ומחלוקות</a></li>
+                                    <li><a href="#terms-23" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">23. הוראות כלליות</a></li>
+                                    <li><a href="#terms-24" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">24. יצירת קשר</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Privacy Index -->
+                            <div id="nav-group-privacy" class="pt-2 border-t border-slate-800">
+                                <div class="text-xs font-bold text-indigo-400 mb-1.5 px-2">חלק ב׳: מדיניות פרטיות</div>
+                                <ul class="space-y-1 text-xs sm:text-sm">
+                                    <li><a href="#privacy-1" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">1. מי אנחנו ויצירת קשר</a></li>
+                                    <li><a href="#privacy-2" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">2. האם חובה למסור מידע</a></li>
+                                    <li><a href="#privacy-3" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">3. איזה מידע אנו אוספים</a></li>
+                                    <li><a href="#privacy-4" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">4. מטרות השימוש במידע</a></li>
+                                    <li><a href="#privacy-5" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">5. התאמה אישית ובניית פרופיל</a></li>
+                                    <li><a href="#privacy-6" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">6. בינה מלאכותית</a></li>
+                                    <li><a href="#privacy-7" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">7. ההסכמות שאנו מבקשים</a></li>
+                                    <li><a href="#privacy-8" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">8. חיבור רשתות חברתיות</a></li>
+                                    <li><a href="#privacy-9" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">9. מסירת מידע לצדדים שלישיים</a></li>
+                                    <li><a href="#privacy-10" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">10. העברת מידע אל מחוץ לישראל</a></li>
+                                    <li><a href="#privacy-11" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">11. הודעות ודיוור</a></li>
+                                    <li><a href="#privacy-12" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">12. עוגיות באתר</a></li>
+                                    <li><a href="#privacy-13" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">13. קטינים</a></li>
+                                    <li><a href="#privacy-14" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">14. כמה זמן אנו שומרים מידע</a></li>
+                                    <li><a href="#privacy-15" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">15. מחיקת החשבון</a></li>
+                                    <li><a href="#privacy-16" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">16. אבטחת מידע</a></li>
+                                    <li><a href="#privacy-17" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">17. הזכויות שלך</a></li>
+                                    <li><a href="#privacy-18" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">18. שינויים במדיניות</a></li>
+                                    <li><a href="#privacy-19" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">19. יצירת קשר</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
                     </div>
                 </nav>
 
                 <!-- Main Legal Text Sections -->
-                <div class="lg:col-span-8 xl:col-span-9 space-y-6" id="sectionsContainer">
+                <div class="lg:col-span-8 xl:col-span-9 space-y-10" id="sectionsContainer">
 
-                    <!-- Section 1 -->
-                    <section id="section-1" class="term-card glass-card rounded-2xl p-6 sm:p-8 transition-all">
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-500/10 text-brand-500 font-bold text-sm border border-brand-500/20">1</span>
-                            <h2 class="text-xl font-bold text-white">מבוא</h2>
-                        </div>
-                        <div class="text-slate-300 space-y-3 leading-relaxed text-sm sm:text-base">
-                            <p>ברוכים הבאים לפלטפורמת <strong>Lumenic</strong> (להלן: "השירות" או "החברה"). תקנון זה ומדיניות הפרטיות המפורטת בו מסדירים את היחסים המשפטיים בין Lumenic לבין כל אדם או ישות המשתמשים בשירותים, באפליקציה או באתר האינטרנט של החברה.</p>
-                            <p>גלישה באתר, הרשמה לשירותים או שימוש באפליקציה מהווים הסכמה מפורשת ובלתי חוזרת לתנאים המפורטים במסמך זה. אם אינך מסכים לתנאי מתנאים אלה, הינך מתבקש לחדול מכל שימוש בשירותי Lumenic באופן מיידי.</p>
-                        </div>
-                    </section>
-
-
-
-                    <!-- Contact Box -->
-                    <div id="contact-card" class="mt-12 rounded-2xl bg-gradient-to-r from-brand-900/40 via-slate-900 to-indigo-950/40 p-8 border border-brand-500/30 text-center sm:text-right flex flex-col sm:flex-row items-center justify-between gap-6">
-                        <div>
-                            <div class="flex items-center gap-3 justify-center sm:justify-start mb-2">
-                                <i class="fa-solid fa-headset text-brand-500 text-xl"></i>
-                                <h3 class="text-lg font-bold text-white">שאלות לגבי התקנון?</h3>
+                    <!-- ========================================================= -->
+                    <!-- PART 1: TERMS OF SERVICE (תקנון Lumenic)                   -->
+                    <!-- ========================================================= -->
+                    <div id="group-terms" class="doc-group space-y-6">
+                        <div class="flex items-center gap-3 pb-2 border-b border-slate-800">
+                            <div class="w-9 h-9 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-500">
+                                <i class="fa-solid fa-file-contract"></i>
                             </div>
-                            <p class="text-slate-400 text-sm">צוות Lumenic זמין לכל שאלה או הבהרה בנוגע לתנאי השימוש והפרטיות.</p>
+                            <div>
+                                <h2 class="text-2xl font-black text-white">חלק א׳: תקנון Lumenic</h2>
+                                <p class="text-xs text-slate-400">תנאי השימוש המלאים בפלטפורמה, באתר ובאפליקציה</p>
+                            </div>
                         </div>
-                        <a href="mailto:hello@lumenic.app" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-medium text-sm transition-all shadow-lg shadow-brand-600/30 whitespace-nowrap flex items-center gap-2">
-                            <i class="fa-regular fa-envelope"></i>
-                            <span>צרו קשר</span>
-                        </a>
-                    </div>
 
-                </div>
-            </div>
-        </div>
-    </main>
+                        <!-- Terms Intro -->
+                        <div class="term-card glass-card rounded-2xl p-6 sm:p-8 transition-all">
+                            <div class="text-slate-300 space-y-3 leading-relaxed text-sm sm:text-base">
+                                <p>ברוכים הבאים ל-<strong>Lumenic</strong>. תקנון זה מסדיר את השימוש באתר, באפליקציות ובשירותים של Lumenic. יש לקרוא אותו בעיון. הרשמה לשירות, אישור התקנון או שימוש בשירות מהווים הסכמה לתנאים. מי שאינו מסכים לתנאים אינו רשאי להשתמש בשירות.</p>
+                                <p class="text-xs text-slate-400">התקנון מנוסח בלשון זכר מטעמי נוחות בלבד, ומתייחס לכל המגדרים.</p>
+                            </div>
+                        </div>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-800/80 bg-slate-950 py-8 mt-12 text-center text-slate-500 text-sm">
-        <div class="max-w-7xl mx-auto px-4">
-            <p>© 2026 Lumenic. כל הזכויות שמורות.</p>
-        </div>
-    </footer>
+                        <!-- Terms 1 -->
+                        <section id="terms-1" class="term-card glass-card rounded-2xl p-6 sm:p-8 transition-all">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-500/10 text-brand-500 font-bold text-sm border border-brand-500/20">1</span>
+                                <h2 class="text-xl font-bold text-white">הגדרות</h2>
+                            </div>
+                            <div class="text-slate-300 space-y-2 leading-relaxed text-sm sm:text-base">
+                                <p><strong>1.1. החברה:</strong> לומניק 037779709 מושב ישע 244 (להלן: "החברה").</p>
+                                <p><strong>1.2. השירות:</strong> פלטפורמת Lumenic ליצירת תוכן שיווקי בסיוע בינה מלאכותית, על כל רכיביה, ובכלל זה האתר, האפליקציות, התכונות והשירותים הנלווים (להלן: "השירות").</p>
+                                <p><strong>1.3. האתר:</strong> אתר האינטרנט בכתובת lumenic-ai.com וכל דף או תת דומיין שלו (להלן: "האתר").</p>
+                                <p><strong>1.4. האפליקציה:</strong> אפליקציית Lumenic למכשירי iOS ו-Android (להלן: "האפליקציה").</p>
+                                <p><strong>1.5. משתמש:</strong> מי שנרשם לשירות או משתמש בו. כאשר ההרשמה נעשית בשם עסק, המשתמש הוא הישות המשפטית שבשמה נעשתה ההרשמה (להלן: "המשתמש").</p>
+                                <p><strong>1.6. חשבון:</strong> חשבון המשתמש בשירות (להלן: "החשבון").</p>
+                                <p><strong>1.7. תוכן משתמש:</strong> כל תוכן שהמשתמש מעלה, מוסר או מזין לשירות, ובכלל זה קליפים, תמונות, אודיו, לוגו, טקסט, פרטי פרופיל ופרטי עסק (להלן: "תוכן המשתמש").</p>
+                                <p><strong>1.8. תוצרים:</strong> כל תוכן שהשירות מפיק עבור המשתמש, ובכלל זה רעיונות, תסריטים, כתוביות, קריינות, תמונות, גרסאות וידאו, תוכניות תוכן וניתוחים (להלן: "התוצרים").</p>
+                                <p><strong>1.9. קרדיטים:</strong> יחידות שימוש בשירות, המוקצות במסגרת תוכנית או נרכשות בנפרד (להלן: "הקרדיטים").</p>
+                                <p><strong>1.10. תוכנית:</strong> מסלול שימוש בשירות, בחינם או בתשלום (להלן: "התוכנית").</p>
+                                <p><strong>1.11. דף התמחור:</strong> הדף באתר או באפליקציה שבו מפורטים התוכניות, מחיריהן, הקרדיטים הכלולים בהן ותנאיהן (להלן: "דף התמחור").</p>
+                                <p><strong>1.12. חנות אפליקציות:</strong> Apple App Store או Google Play (להלן: "חנות האפליקציות").</p>
+                                <p><strong>1.13. רשת מחוברת:</strong> רשת חברתית או שירות של צד שלישי שהמשתמש חיבר לחשבונו, כגון Facebook ו-Instagram של Meta, YouTube ושירותים אחרים של Google, ו-TikTok (להלן: "רשת מחוברת").</p>
+                                <p><strong>1.14. מדיניות הפרטיות:</strong> מדיניות הפרטיות של החברה, כפי שתפורסם באתר ובאפליקציה ותעודכן מעת לעת (להלן: "מדיניות הפרטיות").</p>
+                                <p><strong>1.15. תנאי השימוש:</strong> תקנון זה (להלן: "התקנון"), מדיניות הפרטיות וכן כל הוראה של החברה בנוגע לשימוש בשירות, באתר או באפליקציה (להלן: "תנאי השימוש").</p>
+                            </div>
+                        </section>
 
-    <script>
-        function filterSections() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
-            const cards = document.querySelectorAll('.term-card');
-            
-            cards.forEach(card => {
-                const text = card.innerText.toLowerCase();
-                if (text.includes(query)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
-</body>
-</html>
+                        <!-- Terms 2 -->
+                        <section id="terms-2" class="term-card glass-card rounded-2xl p-6 sm:p-8 transition-all">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-500/10 text-brand-500 font-bold text-sm border border-brand-500/20">2</span>
+                                <h2 class="text-xl font-bold text-white">פרשנות</h2>
+                            </div>
+                            <div class="text-slate-300 space-y-2 leading-relaxed text-sm sm:text-base">
+                                <p><strong>2.1.</strong> המבוא לתקנון זה יפורש כמקשה אחת עם יתר חלקי התקנון.</p>
+                                <p><strong>2.2.</strong> הכותרות וכותרות המשנה בתקנון חסרי תוקף פרשני והם מובאים לנוחות הקריאה בלבד.</p>
+                                <p><strong>2.3.</strong> ככל שהאפליקציה הורדה או נרכשה באמצעות חנות אפליקציות, השימוש בה כפוף גם לתנאי אותה חנות. תנאי התקנון לא יפורשו באופן הסותר את כללי השימוש של חנות האפליקציות.</p>
+                                <p><strong>2.4.</strong> השימוש בשירות כפוף גם למדיניות הפרטיות ולתנאי התוכנית שבדף התמחור, המהווים חלק מתנאי השימוש. בסתירה בין התקנון לבין תנאי התוכנית שבדף התמחור, יגברו תנאי התוכנית. בסתירה בין התקנון לבין מדיניות הפרטיות, תגבר מדיניות הפרטיות.</p>
+                            </div>
+                        </section>
+
+                        <!-- Terms 3 -->
+                        <section id="terms-3" class="term-card glass-card rounded-2xl p-6 sm:p-8 transition-all">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-500/10 text-brand-500 font-bold text-sm border border-brand-500/20">3</span>
+                                <h2 class="text-xl font-bold text-white">הצדדים וקבלת תנאי התקנון</h2>
+                            </div>
+                            <div class="text-slate-300 space-y-2 leading-relaxed text-sm sm:text-base">
+                                <p><strong>3.1.</strong> התקנון מהווה הסכם מחייב בין המשתמש לבין החברה. אם המשתמש פועל בשם עסק, האדם המאשר את התנאים מצהיר שהוא מוסמך לחייב את העסק, והעסק הוא הצד לתנאים.</p>
+                                <p><strong>3.2.</strong> מובהר כי Apple Inc, Google LLC, או כל חברה המפעילה חנות אפליקציות או רשת מחוברת (לרבות Meta) אינם צד לתקנון ולא יחובו בכל חובה מחמתו. החברה, ולא Apple או Google, אחראית לאפליקציה ולתוכנה.</p>
+                                <p><strong>3.3.</strong> עם זאת, ככל והאפליקציה הורדה מחנות האפליקציות של Apple, תהא זו וחברות הבת שלה למוטבות צד שלישי של התקנון.</p>
+                                <p><strong>3.4.</strong> התקנון מחייב עם תחילת ההרשמה או השימוש בשירות, המוקדם מביניהם. מובהר כי החברה מתעדת את גרסת התקנון בעת שאושרה ע"י המשתמש ואת מועד האישור.</p>
+                            </div>
+                        </section>
+
+                        <!-- Terms 4 -->
+                        <section id="terms-4" class="term-card glass-card rounded-2xl p-6 sm:p-8 transition-all">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-500/10 text-brand-500 font-bold text-sm border border-brand-500/20">4</span>
+                                <h2 class="text-xl font-bold text-white">כשירות, הרשמה וחשבון</h2>
+                            </div>
+                            <div class="text-slate-300 space-y-2 leading-relaxed text-sm sm:text-base">
+                                <p><strong>4.1.</strong> השימוש בשירות מותר למי שמלאו לו 13 שנים. במדינות שבהן הדין קובע גיל גבוה יותר להסכמה לשימוש בשירותים מקוונים או לעיבוד מידע אישי, יחול הגיל הגבוה, כמפורט בתנאים המשלימים לפי אזור שלהלן.</p>
+                                <p><strong>4.2.</strong> בעת ההרשמה יתבקש המשתמש למסור את תאריך לידתו. הרשמה של מי שטרם מלאו לו 13 שנים תיחסם. אם יתברר לחברה שמשתמש טרם מלאו לו 13 שנים, היא תסגור את חשבונו ותמחק את המידע עליו, בהתאם למדיניות הפרטיות.</p>
+                                <p><strong>4.3.</strong> משתמש שטרם מלאו לו 18 שנים, או שטרם הגיע לגיל הבגירות במדינת מגוריו אם הוא גבוה מ-18, רשאי להשתמש בשירות רק בהסכמת הורהו או האפוטרופוס שלו. ההורה או האפוטרופוס יהא אחראי לשימוש הקטין בשירות ולעמידתו בתנאים.</p>
+                                <p><strong>4.4.</strong> המשתמש מצהיר שהפרטים שמסר על גילו נכונים, ושהוא כשיר להתקשר בתנאים או שקיבל את ההסכמה הנדרשת לכך.</p>
+                                <p><strong>4.5.</strong> דירוג הגיל של האפליקציה בחנויות האפליקציות מתייחס לתוכן האפליקציה בלבד, ואינו קובע את הכשירות להתקשר בתנאים.</p>
+                                <p><strong>4.6.</strong> רכישה בשירות בידי קטין טעונה הסכמת הורהו או האפוטרופוס שלו ואישור בעל אמצעי התשלום. מובהר כי אין באמור בתקנון זה כדי להגביל תחולת תנאים נוספים שעשויים לחול על רכישה או שימוש, כגון תנאי חנויות האפליקציות, אילו תיעשה פעולה מחייבת באמצעותם.</p>
+                                <p><strong>4.7.</strong> המשתמש מצהיר שאינו נמצא במדינה הנתונה לאמברגו של ממשלת ארצות הברית או שהוגדרה בידה כמדינה תומכת טרור, ושאינו כלול ברשימת גורמים אסורים או מוגבלים של ממשלת ארצות הברית.</p>
+                                <p><strong>4.8.</strong> השירות מופעל מישראל ומוצע בה, ועשוי להיות מוצע במדינות נוספות. משתמש המשתמש בשירות מחוץ לישראל אחראי לעמידה בדין החל במקום שבו הוא נמצא. על משתמשים במדינות המפורטות בתנאים המשלימים לפי אזור יחולו גם התנאים המשלימים, ובסתירה הם יגברו. החברה רשאית להגביל את הגישה לשירות ממדינות מסוימות.</p>
+                                <p><strong>4.9.</strong> בעת ההרשמה ימסור המשתמש פרטים נכונים, מלאים ועדכניים, ויהא אחראי על עדכונם לפי הצורך. ההרשמה אפשרית באמצעות כתובת דוא״ל וסיסמה, או באמצעות חשבון Apple, Facebook או Instagram.</p>
+                                <p><strong>4.10.</strong> החשבון אישי. אין להעביר את החשבון לאחר, לשתף את פרטי ההתחברות או לאפשר שימוש משותף בחשבון. חשבון שנפתח בשם עסק שייך לעסק, ואינו ניתן להעברה לישות אחרת שאינה פועלת בשם העסק.</p>
+                                <p><strong>4.11.</strong> מובהר כי משתמש שהוא עסק יראה כאחראי לכל פעולה או מחדל של מי שמשתמש בחשבון בשמו, כאילו נעשו בידי העסק עצמו.</p>
+                                <p><strong>4.12.</strong> המשתמש אחראי לשמירת סודיות פרטי ההתחברות ולכל פעולה שנעשית בחשבונו. המשתמש יודיע לחברה מיד על חשד לשימוש בלתי מורשה בחשבון, בכתובת <a href="mailto:security@lumenic-ai.com" class="text-brand-500 hover:underline">security@lumenic-ai.com</a>, בלי לשלוח סיסמה או טוקן.</p>
+                            </div>
+                        </section>
+
+                        <!-- Terms 5 -->
+                        <section id="terms-5" class="term-card glass-card rounded-2xl p-6 sm:p-8 transition-all">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-500/10 text-brand-500 font-bold text-sm border border-brand-500/20">5</span>
+                                <h2 class="text-xl font-bold text-white">השירות</h2>
+                            </div>
+                            <div class="text-slate-300 space-y-2 leading-relaxed text-sm sm:text-base">
+                                <p><strong>5.1.</strong> השירות הוא סטודיו מבוסס בינה מלאכותית ליצירת תוכן שיווקי. בין היתר, השירות מציע רעיונות תוכן, תוכנית תוכן חודשית, כתיבת תסריטים, כתוביות, קריינות סינתטית, יצירת תמונות, עריכה והרכבה של גרסאות וידאו מתוך תוכן המשתמש, וניתוח ביצועים מהרשתות המחוברות. היקף התכונות בכל תוכנית מפורט בדף התמחור.</p>
+                                <p><strong>5.2.</strong> התוצרים מופקים בסיוע מודלים וכלים מבוססי בינה מלאכותית של ספקי צד שלישי. לשם כך, תוכן המשתמש ונתונים הדרושים להפקה מועברים לעיבוד אצל ספקים אלה ועשויים להיות כפופים לתנאי השימוש שלהם. המשתמש מתחייב לעמוד גם במדיניות השימוש של ספקי ה-AI, כפי שהיא מפורסמת אצלם מעת לעת, ככל שהיא חלה על השימוש בתכונות המבוססות עליהם.</p>
+                                <p><strong>5.3.</strong> המשתמש אחראי לכך שיש בידו כל הזכויות בקלט שהוא מזין לתכונות המבוססות על ספקי שירותי הבינה המלאכותית, ולא ישתמש בהן באופן המפר את תנאי הספקים או זכויות של אחרים.</p>
+                                <p><strong>5.4.</strong> תכונות המבוססות על ספקי צד שלישי עשויות להשתנות, להיות מוגבלות או להיפסק בהתאם להחלטות אותם הספקים. החברה אינה אחראית לזמינות שירותי הספקים, לתקלות בהם או לשביעות רצון המשתמשים מתוצרי אותם ספקים.</p>
+                                <p><strong>5
