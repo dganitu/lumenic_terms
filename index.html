@@ -3,362 +3,838 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumenic - תקנון ומדיניות פרטיות</title>
-    
-    <!-- Google Fonts: Heebo -->
+    <title>Lumenic - תקנון שימוש</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Heebo', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f0f6ff',
-                            100: '#e0edff',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            900: '#1e3a8a',
-                        }
-                    }
+                    fontFamily: { sans: ['Heebo', 'sans-serif'] },
+                    colors: { brand: { 50: '#f0f6ff', 100: '#e0edff', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a' } }
                 }
             }
         }
     </script>
-    
     <style>
-        body {
-            font-family: 'Heebo', sans-serif;
-            background-color: #0b0f17;
-            color: #e2e8f0;
-        }
-        
-        /* Glassmorphism backdrop effect */
-        .glass-header {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        
-        .glass-card {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(8px);
-        }
-
-        .glass-card:hover {
-            border-color: rgba(59, 130, 246, 0.3);
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0b0f17;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1e293b;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #334155;
-        }
-
-        /* Active Tab Styling */
-        .tab-btn.active {
-            background-color: #2563eb;
-            color: #ffffff;
-            border-color: #3b82f6;
-            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
-        }
-
-        /* Print optimization */
-        @media print {
-            header, nav, .search-container, .tab-container, footer, #contact-card {
-                display: none !important;
-            }
-            body {
-                background: white !important;
-                color: black !important;
-            }
-            .glass-card {
-                background: none !important;
-                border: none !important;
-                border-bottom: 1px solid #ccc !important;
-                box-shadow: none !important;
-                page-break-inside: avoid;
-            }
-            .text-brand-500, .text-slate-400, .text-slate-300, .text-white {
-                color: black !important;
-            }
-            .doc-group {
-                display: block !important;
-            }
-        }
+        body { font-family: 'Heebo', sans-serif; background-color: #0b0f17; color: #e2e8f0; }
+        .glass-header { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(12px); }
+        .glass-card { background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(8px); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0b0f17; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
-
-    <!-- Sticky Glass Header -->
-    <header class="sticky top-0 z-50 glass-header border-b border-slate-800 transition-all duration-200">
+    <header class="sticky top-0 z-50 glass-header border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform duration-200">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-brand-500/20">
                     <i class="fa-solid fa-lightbulb text-white text-lg"></i>
                 </div>
-                <span class="text-xl font-bold bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-                    Lumenic
-                </span>
-            </a>
-
-            <!-- Quick Jump Links (Desktop) -->
-            <div class="hidden sm:flex items-center gap-2 text-xs font-medium">
-                <button onclick="switchTab('terms')" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">תקנון שימוש</button>
-                <button onclick="switchTab('privacy')" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">מדיניות פרטיות</button>
+                <span class="text-xl font-bold text-white">Lumenic</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-xs text-slate-400 font-medium">תקנון שימוש</span>
             </div>
         </div>
     </header>
-
     <main class="flex-grow">
-        <!-- Hero Section -->
-        <section class="relative py-12 md:py-16 overflow-hidden border-b border-slate-800/60 bg-gradient-to-b from-slate-900/50 to-transparent">
-            <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-900/20 via-transparent to-transparent"></div>
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-500 text-xs font-semibold uppercase tracking-wider mb-4">
-                    מסמכים משפטיים רשמיים
-                </span>
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
-                    תקנון ומדיניות פרטיות
-                </h1>
-                <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto flex items-center justify-center gap-2 mb-2">
-                    <i class="fa-regular fa-clock text-brand-500"></i>
-                    <span>עודכן לאחרונה: 29 באוקטובר 2026</span>
-                </p>
-                <p class="text-slate-400 text-xs sm:text-sm max-w-2xl mx-auto">
-                    מסמכים אלה מסדירים את השימוש באתר lumenic-ai.com, באפליקציית Lumenic (iOS ו-Android) ובשירותים הנלווים.
-                </p>
-
-                <!-- Document Switcher Tabs -->
-                <div class="mt-8 flex flex-wrap items-center justify-center gap-2.5 tab-container">
-                    <button id="tab-all" onclick="switchTab('all')" class="tab-btn active px-5 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700/80 text-slate-300 text-sm font-semibold transition-all hover:border-slate-500">
-                        <i class="fa-solid fa-layer-group ml-1.5"></i> הצג הכל
-                    </button>
-                    <button id="tab-terms" onclick="switchTab('terms')" class="tab-btn px-5 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700/80 text-slate-300 text-sm font-semibold transition-all hover:border-slate-500">
-                        <i class="fa-solid fa-file-contract ml-1.5"></i> תקנון שימוש (1–24)
-                    </button>
-                    <button id="tab-privacy" onclick="switchTab('privacy')" class="tab-btn px-5 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700/80 text-slate-300 text-sm font-semibold transition-all hover:border-slate-500">
-                        <i class="fa-solid fa-shield-halved ml-1.5"></i> מדיניות פרטיות (1–19)
-                    </button>
-                </div>
-
-                <!-- Search Bar -->
-                <div class="mt-6 max-w-xl mx-auto search-container">
-                    <div class="relative">
-                        <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                        <input type="text" id="searchInput" oninput="filterSections()" 
-                               placeholder="חפש בתקנון או במדיניות הפרטיות (לדוגמה: קרדיטים, ביטול מנוי, עוגיות, AI)..." 
-                               class="w-full pl-4 pr-11 py-3 bg-slate-900/80 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent shadow-inner transition-all">
-                    </div>
-                </div>
+        <section class="py-12 md:py-16 border-b border-slate-800/60 bg-gradient-to-b from-slate-900/50 to-transparent">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4">תקנון Lumenic</h1>
             </div>
         </section>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="space-y-8 text-slate-300 text-sm sm:text-base leading-relaxed">
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                
-                <!-- Navigation Sidebar -->
-                <nav class="lg:col-span-4 xl:col-span-3">
-                    <div class="sticky top-24 glass-card rounded-2xl p-5 border border-slate-800">
-                        <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-                            <i class="fa-solid fa-list-ul text-brand-500"></i>
-                            תוכן עניינים
-                        </h2>
-                        <div class="max-h-[72vh] overflow-y-auto pr-1 space-y-4" id="indexList">
-                            
-                            <!-- Terms Index -->
-                            <div id="nav-group-terms">
-                                <div class="text-xs font-bold text-brand-500 mb-1.5 px-2">חלק א׳: תקנון Lumenic</div>
-                                <ul class="space-y-1 text-xs sm:text-sm">
-                                    <li><a href="#terms-1" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">1. הגדרות</a></li>
-                                    <li><a href="#terms-2" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">2. פרשנות</a></li>
-                                    <li><a href="#terms-3" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">3. הצדדים וקבלת תנאי התקנון</a></li>
-                                    <li><a href="#terms-4" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">4. כשירות, הרשמה וחשבון</a></li>
-                                    <li><a href="#terms-5" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">5. השירות</a></li>
-                                    <li><a href="#terms-6" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">6. תוכניות, מחירים ותשלום</a></li>
-                                    <li><a href="#terms-7" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">7. קרדיטים</a></li>
-                                    <li><a href="#terms-8" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">8. ניסיון, חידוש אוטומטי וביטול</a></li>
-                                    <li><a href="#terms-9" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">9. החזרים</a></li>
-                                    <li><a href="#terms-10" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">10. כללי שימוש</a></li>
-                                    <li><a href="#terms-11" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">11. תוכן המשתמש</a></li>
-                                    <li><a href="#terms-12" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">12. תוצרים ובינה מלאכותית</a></li>
-                                    <li><a href="#terms-13" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">13. חיבור לרשתות וצד שלישי</a></li>
-                                    <li><a href="#terms-14" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">14. קניין רוחני ורישיון שימוש</a></li>
-                                    <li><a href="#terms-15" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">15. פרטיות</a></li>
-                                    <li><a href="#terms-16" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">16. הודעות ודיוור</a></li>
-                                    <li><a href="#terms-17" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">17. תמיכה ותחזוקה</a></li>
-                                    <li><a href="#terms-18" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">18. השעיה, סיום ומחיקת חשבון</a></li>
-                                    <li><a href="#terms-19" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">19. היעדר מצגים והגבלת אחריות</a></li>
-                                    <li><a href="#terms-20" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">20. שיפוי</a></li>
-                                    <li><a href="#terms-21" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">21. שינוי תנאי השימוש</a></li>
-                                    <li><a href="#terms-22" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">22. דין, סמכות שיפוט ומחלוקות</a></li>
-                                    <li><a href="#terms-23" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">23. הוראות כלליות</a></li>
-                                    <li><a href="#terms-24" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">24. יצירת קשר</a></li>
-                                </ul>
-                            </div>
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <p>ברוכים הבאים ל-Lumenic. תקנון זה מסדיר את השימוש באתר, באפליקציות ובשירותים של Lumenic. יש לקרוא אותו בעיון. הרשמה לשירות, אישור התקנון או שימוש בשירות מהווים הסכמה לתנאים. מי שאינו מסכים לתנאים אינו רשאי להשתמש בשירות .</p>
+                    <p>התקנון מנוסח בלשון זכר מטעמי נוחות בלבד, ומתייחס לכל המגדרים .</p>
+                </div>
 
-                            <!-- Privacy Index -->
-                            <div id="nav-group-privacy" class="pt-2 border-t border-slate-800">
-                                <div class="text-xs font-bold text-indigo-400 mb-1.5 px-2">חלק ב׳: מדיניות פרטיות</div>
-                                <ul class="space-y-1 text-xs sm:text-sm">
-                                    <li><a href="#privacy-1" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">1. מי אנחנו ויצירת קשר</a></li>
-                                    <li><a href="#privacy-2" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">2. האם חובה למסור מידע</a></li>
-                                    <li><a href="#privacy-3" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">3. איזה מידע אנו אוספים</a></li>
-                                    <li><a href="#privacy-4" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">4. מטרות השימוש במידע</a></li>
-                                    <li><a href="#privacy-5" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">5. התאמה אישית ובניית פרופיל</a></li>
-                                    <li><a href="#privacy-6" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">6. בינה מלאכותית</a></li>
-                                    <li><a href="#privacy-7" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">7. ההסכמות שאנו מבקשים</a></li>
-                                    <li><a href="#privacy-8" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">8. חיבור רשתות חברתיות</a></li>
-                                    <li><a href="#privacy-9" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">9. מסירת מידע לצדדים שלישיים</a></li>
-                                    <li><a href="#privacy-10" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">10. העברת מידע אל מחוץ לישראל</a></li>
-                                    <li><a href="#privacy-11" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">11. הודעות ודיוור</a></li>
-                                    <li><a href="#privacy-12" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">12. עוגיות באתר</a></li>
-                                    <li><a href="#privacy-13" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">13. קטינים</a></li>
-                                    <li><a href="#privacy-14" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">14. כמה זמן אנו שומרים מידע</a></li>
-                                    <li><a href="#privacy-15" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">15. מחיקת החשבון</a></li>
-                                    <li><a href="#privacy-16" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">16. אבטחת מידע</a></li>
-                                    <li><a href="#privacy-17" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">17. הזכויות שלך</a></li>
-                                    <li><a href="#privacy-18" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">18. שינויים במדיניות</a></li>
-                                    <li><a href="#privacy-19" class="block px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all">19. יצירת קשר</a></li>
-                                </ul>
-                            </div>
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">הגדרות</h2>
+                    <div class="space-y-2">
+                        <p>החברה: לומניק [שם משפטי מלא, מספר תאגיד וכתובת רשומה] (להלן: "החברה") .</p>
+                        <p>השירות: פלטפורמת Lumenic ליצירת תוכן שיווקי בסיוע בינה מלאכותית, על כל רכיביה, ובכלל זה האתר, האפליקציות, התכונות והשירותים הנלווים (להלן: "השירות") .</p>
+                        <p>האתר: אתר האינטרנט בכתובת lumenic-ai.com וכל דף או תת דומיין שלו (להלן: "האתר") .</p>
+                        <p>האפליקציה: אפליקציית Lumenic למכשירי iOS ו-Android (להלן: "האפליקציה") .</p>
+                        <p>משתמש: מי שנרשם לשירות או משתמש בו. כאשר ההרשמה נעשית בשם עסק, המשתמש הוא הישות המשפטית שבשמה נעשתה ההרשמה (להלן: "המשתמש") .</p>
+                        <p>חשבון: חשבון המשתמש בשירות (להלן: "החשבון") .</p>
+                        <p>תוכן משתמש: כל תוכן שהמשתמש מעלה, מוסר או מזין לשירות, ובכלל זה קליפים, תמונות, אודיו, לוגו, טקסט, פרטי פרופיל ופרטי עסק (להלן: "תוכן המשתמש") .</p>
+                        <p>תוצרים: כל תוכן שהשירות מפיק עבור המשתמש, ובכלל זה רעיונות, תסריטים, כתוביות, קריינות, תמונות, גרסאות וידאו, תוכניות תוכן וניתוחים (להלן: "התוצרים") .</p>
+                        <p>קרדיטים: יחידות שימוש בשירות, המוקצות במסגרת תוכנית או נרכשות בנפרד (להלן: "הקרדיטים") .</p>
+                        <p>תוכנית: מסלול שימוש בשירות, בחינם או בתשלום (להלן: "התוכנית") .</p>
+                        <p>דף התמחור: הדף באתר או באפליקציה שבו מפורטים התוכניות, מחיריהן, הקרדיטים הכלולים בהן ותנאיהן (להלן: "דף התמחור") .</p>
+                        <p>חנות אפליקציות: Apple App Store או Google Play (להלן: "חנות האפליקציות") .</p>
+                        <p>רשת מחוברת: רשת חברתית או שירות של צד שלישי שהמשתמש חיבר לחשבונו, כגון Facebook ו-Instagram של Meta, YouTube ושירותים אחרים של Google, ו-TikTok (להלן: "רשת מחוברת") .</p>
+                        <p>מדיניות הפרטיות: מדיניות הפרטיות של החברה, כפי שתפורסם באתר ובאפליקציה ותעודכן מעת לעת (להלן: "מדיניות הפרטיות") .</p>
+                        <p>תנאי השימוש: תקנון זה (להלן: "התקנון"), מדיניות הפרטיות וכן כל הוראה של החברה בנוגע לשימוש בשירות, באתר או באפליקציה (להלן: "תנאי השימוש") .</p>
+                    </div>
+                </div>
 
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">פרשנות</h2>
+                    <div class="space-y-2">
+                        <p>המבוא לתקנון זה יפורש כמקשה אחת עם יתר חלקי התקנון .</p>
+                        <p>הכותרות וכותרות המשנה בתקנון חסרי תוקף פרשני והם מובאים לנוחות הקריאה בלבד .</p>
+                        <p>ככל שהאפליקציה הורדה או נרכשה באמצעות חנות אפליקציות, השימוש בה כפוף גם לתנאי אותה חנות. תנאי התקנון לא יפורשו באופן הסותר את כללי השימוש של חנות האפליקציות .</p>
+                        <p>השימוש בשירות כפוף גם למדיניות הפרטיות ולתנאי התוכנית שבדף התמחור, המהווים חלק מתנאי השימוש. בסתירה בין התקנון לבין תנאי התוכנית שבדף התמחור, יגברו תנאי התוכנית. בסתירה בין התקנון לבין מדיניות הפרטיות, תגבר מדיניות הפרטיות .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">הצדדים וקבלת תנאי התקנון</h2>
+                    <div class="space-y-2">
+                        <p>התקנון מהווה הסכם מחייב בין המשתמש לבין החברה. אם המשתמש פועל בשם עסק, האדם המאשר את התנאים מצהיר שהוא מוסמך לחייב את העסק, והעסק הוא הצד לתנאים .</p>
+                        <p>מובהר כי Apple Inc, Google LLC, או כל חברה המפעילה חנות אפליקציות או רשת מחוברת (לרבות Meta) אינם צד לתקנון ולא יחובו בכל חובה מחמתו. החברה, ולא Apple או Google, אחראית לאפליקציה ולתוכנה .</p>
+                        <p>עם זאת, ככל והאפליקציה הורדה מחנות האפליקציות של Apple, תהא זו וחברות הבת שלה למוטבות צד שלישי של התקנון .</p>
+                        <p>התקנון מחייב עם תחילת ההרשמה או השימוש בשירות, המוקדם מביניהם. מובהר כי החברה מתעדת את גרסת התקנון בעת שאושרה ע"י המשתמש ואת מועד האישור .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">כשירות, הרשמה וחשבון</h2>
+                    <div class="space-y-2">
+                        <p>השימוש בשירות מותר למי שמלאו לו 13 שנים. במדינות שבהן הדין קובע גיל גבוה יותר להסכמה לשימוש בשירותים מקוונים או לעיבוד מידע אישי, יחול הגיל הגבוה, כמפורט בתנאים המשלימים לפי אזור שלהלן .</p>
+                        <p>בעת ההרשמה יתבקש המשתמש למסור את תאריך לידתו. הרשמה של מי שטרם מלאו לו 13 שנים תיחסם. אם יתברר לחברה שמשתמש טרם מלאו לו 13 שנים, היא תסגור את חשבונו ותמחק את המידע עליו, בהתאם למדיניות הפרטיות .</p>
+                        <p>משתמש שטרם מלאו לו 18 שנים, או שטרם הגיע לגיל הבגירות במדינת מגוריו אם הוא גבוה מ-18, רשאי להשתמש בשירות רק בהסכמת הורהו או האפוטרופוס שלו. ההורה או האפוטרופוס יהא אחראי לשימוש הקטין בשירות ולעמידתו בתנאים .</p>
+                        <p>המשתמש מצהיר שהפרטים שמסר על גילו נכונים, ושהוא כשיר להתקשר בתנאים או שקיבל את ההסכמה הנדרשת לכך .</p>
+                        <p>דירוג הגיל של האפליקציה בחנויות האפליקציות מתייחס לתוכן האפליקציה בלבד, ואינו קובע את הכשירות להתקשר בתנאים .</p>
+                        <p>רכישה בשירות בידי קטין טעונה הסכמת הורהו או האפוטרופוס שלו ואישור בעל אמצעי התשלום. מובהר כי אין באמור בתקנון זה כדי להגביל תחולת תנאים נוספים שעשויים לחול על רכישה או שימוש, כגון תנאי חנויות האפליקציות, אילו תיעשה פעולה מחייבת באמצעותם .</p>
+                        <p>המשתמש מצהיר שאינו נמצא במדינה הנתונה לאמברגו של ממשלת ארצות הברית או שהוגדרה בידה כמדינה תומכת טרור, ושאינו כלול ברשימת גורמים אסורים או מוגבלים של ממשלת ארצות הברית .</p>
+                        <p>השירות מופעל מישראל ומוצע בה, ועשוי להיות מוצע במדינות נוספות. משתמש המשתמש בשירות מחוץ לישראל אחראי לעמידה בדין החל במקום שבו הוא נמצא. על משתמשים במדינות המפורטות בתנאים המשלימים לפי אזור יחולו גם התנאים המשלימים, ובסתירה הם יגברו. החברה רשאית להגביל את הגישה לשירות ממדינות מסוימות .</p>
+                        <p>בעת ההרשמה ימסור המשתמש פרטים נכונים, מלאים ועדכניים, ויהא אחראי על עדכונם לפי הצורך. ההרשמה אפשרית באמצעות כתובת דוא״ל וסיסמה, או באמצעות חשבון Apple, Facebook או Instagram .</p>
+                        <p>החשבון אישי. אין להעביר את החשבון לאחר, לשתף את פרטי ההתחברות או לאפשר שימוש משותף בחשבון. חשבון שנפתח בשם עסק שייך לעסק, ואינו ניתן להעברה לישות אחרת שאינה פועלת בשם העסק .</p>
+                        <p>מובהר כי משתמש שהוא עסק יראה כאחראי לכל פעולה או מחדל של מי שמשתמש בחשבון בשמו, כאילו נעשו בידי העסק עצמו .</p>
+                        <p>המשתמש אחראי לשמירת סודיות פרטי ההתחברות ולכל פעולה שנעשית בחשבונו. המשתמש יודיע לחברה מיד על חשד לשימוש בלתי מורשה בחשבון, בכתובת security@lumenic-ai.com, בלי לשלוח סיסמה או טוקן .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">השירות</h2>
+                    <div class="space-y-2">
+                        <p>השירות הוא סטודיו מבוסס בינה מלאכותית ליצירת תוכן שיווקי. בין היתר, השירות מציע רעיונות תוכן, תוכנית תוכן חודשית, כתיבת תסריטים, כתוביות, קריינות סינתטית, יצירת תמונות, עריכה והרכבה של גרסאות וידאו מתוך תוכן המשתמש, וניתוח ביצועים מהרשתות המחוברות. היקף התכונות בכל תוכנית מפורט בדף התמחור .</p>
+                        <p>התוצרים מופקים בסיוע מודלים וכלים מבוססי בינה מלאכותית של ספקי צד שלישי. לשם כך, תוכן המשתמש ונתונים הדרושים להפקה מועברים לעיבוד אצל ספקים אלה ועשויים להיות כפופים לתנאי השימוש שלהם. המשתמש מתחייב לעמוד גם במדיניות השימוש של ספקי ה-AI, כפי שהיא מפורסמת אצלם מעת לעת, ככל שהיא חלה על השימוש בתכונות המבוססות עליהם .</p>
+                        <p>המשתמש אחראי לכך שיש בידו כל הזכויות בקלט שהוא מזין לתכונות המבוססות על ספקי שירותי הבינה המלאכותית, ולא ישתמש בהן באופן המפר את תנאי הספקים או זכויות של אחרים .</p>
+                        <p>תכונות המבוססות על ספקי צד שלישי עשויות להשתנות, להיות מוגבלות או להיפסק בהתאם להחלטות אותם הספקים. החברה אינה אחראית לזמינות שירותי הספקים, לתקלות בהם או לשביעות רצון המשתמשים מתוצרי אותם ספקים .</p>
+                        <p>השירות אינו מפרסם תוכן ואינו פועל ברשתות המחוברות בשם המשתמש. על המשתמש להוריד את התוצרים ולדאוג לפרסומם בעצמו, ככל שיחפוץ. היה ותוטמענה בשירות תכונות נוספות שיאפשרו פרסום ברשתות המחוברות באופן ישיר, תימסר על כך הודעה למשתמשים .</p>
+                        <p>החברה תפעל במאמץ סביר להפעלת השירות, אך אינה מתחייבת לזמינות רציפה או ללא תקלות. השירות עשוי להיות מושבת לצורך תחזוקה, עדכון או בשל תקלה אצל החברה או ספקים .</p>
+                        <p>החברה רשאית לקיים את התחייבויותיה שלפי התקנון בעצמה או באמצעות מי מטעמה, לרבות קבלנים וספקי שירות .</p>
+                        <p>החברה רשאית לעדכן את השירות ואת האפליקציה בכל עת. עדכונים עשויים להיות מותקנים אוטומטית, בהתאם להגדרות המכשיר וחנות האפליקציות, ועשויים לשנות את הממשק או את אופן השימוש, ובלבד שהפונקציונליות העיקרית של השירות תישמר .</p>
+                        <p>גרסאות קודמות של האפליקציה עשויות שלא לתמוך בשירות או בחלק מתכונותיו, והמשתמש עשוי להידרש להתקין את הגרסה העדכנית כדי להמשיך להשתמש בשירות. החברה אינה אחראית לתקלה, לפגיעה באבטחה או לאובדן נתונים הנובעים משימוש בגרסה שאינה עדכנית .</p>
+                        <p>עדכון הכרוך בהשבתה מלאה של השירות יימסר בהודעה בשירות זמן סביר מראש, והחברה תפעל במאמץ סביר לצמצם את ההפרעה. עדכונים אחרים עשויים להתבצע בלי הודעה מראש. החברה אינה אחראית לאובדן תוכן שהוזן לשירות בזמן עדכון, ועל המשתמש לוודא שהתוכן שהזין נשמר .</p>
+                        <p>החברה רשאית לשנות, להוסיף, להגביל או להפסיק תכונות בשירות. שינוי הפוגע באופן ניכר במנוי בתשלום יימסר מראש, ככל שניתן, והמשתמש יהיה רשאי לבטל את המנוי בכפוף לדין ולתקנון. במעבר למודל מנויים, לא תישלל ממשתמשים קיימים פונקציונליות עיקרית ששילמו עליה .</p>
+                        <p>תכונות המסומנות כניסיוניות (Beta) ניתנות כפי שהן ועשויות להשתנות או להיפסק .</p>
+                        <p>השירות אינו מופעל, ממומן או נתמך בידי Meta, Google, Apple, TikTok או ספקי ה-AI, ואין לראות בו שותפות עימם .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">תוכניות, מחירים ותשלום</h2>
+                    <div class="space-y-2">
+                        <p>השירות מוצע בתוכנית ניסיון ובתוכניות מנוי חודשיות בתשלום, המותאמות לסוג המשתמש. המחירים, הקרדיטים, התכונות ומידע נוסף מפורטים בדף התמחור המתעדכן מעת לעת .</p>
+                        <p>המחירים המוצגים בדף התמחור כוללים מע״מ כדין .</p>
+                        <p>רכישה באתר מתבצעת באמצעות ספק סליקה חיצוני. רכישה באפליקציה מתבצעת באמצעות מערכת הרכישה של חנות האפליקציות בלבד. ברכישה בחנות האפליקציות, החנות היא המחייבת את המשתמש, והחברה אינה מקבלת את פרטי אמצעי התשלום .</p>
+                        <p>מנוי שנרכש באתר מקנה גישה לאותה תכנית עבור אותו משתמש גם באפליקציה, ומנוי שנרכש באפליקציה מקנה גישה לאותה תכנית עבור אותו משתמש גם באתר. החברה נוקטת אמצעים למניעת רכישה כפולה של אותו מנוי באתר ובאפליקציה. ככל שבכל זאת בוצעה רכישה כפולה, על המשתמש לבטל את המנוי הכפול בערוץ שבו נרכש, והוא לא יהיה זכאי להחזר בגין התקופה שבה החזיק בשני המנויים, בכפוף לדין ולמדיניות חנות האפליקציות .</p>
+                        <p>החברה רשאית להציע קופונים, הנחות ותוכנית הפניות, בתנאים שיפורסמו בעת ההצעה .</p>
+                        <p>החברה רשאית לשנות את המחירים בכל עת. שינוי מחיר יחול ממחזור החיוב הבא, לאחר הודעה מראש, והמשתמש יוכל לבטל את המנוי לפני כניסת המחיר החדש לתוקף. ברכישה דרך חנות האפליקציות יחולו גם כללי החנות לעניין שינוי מחיר .</p>
+                        <p>אם החיוב נכשל, החברה או ספק התשלום רשאים לנסות לחייב שוב, להשהות את תכונות השירות שבתשלום ולהשעות את החשבון עד להסדרת התשלום .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">קרדיטים</h2>
+                    <div class="space-y-2">
+                        <p>כל תוכנית כוללת מכסה חודשית של קרדיטים. קרדיטים חודשיים שלא נוצלו נצברים לחודשים הבאים .</p>
+                        <p>המשתמש רשאי לרכוש תוספת קרדיטים. לא יינתן החזר בגין קרדיטים שנרכשו בנפרד ולא נוצלו, בכפוף לדין .</p>
+                        <p>בביטול מנוי, הקרדיטים החודשיים יישארו לשימוש עד תום החודש ששולם. קרדיטים שנרכשו בנפרד יישארו לשימוש עד לניצולם. בעת בקשה לסגירת החשבון תוצג למשתמש יתרת הקרדיטים שטרם נוצלו, והוא רשאי לדחות את בקשתו עד לניצולם. קרדיטים שלא נוצלו עד לסגירת החשבון יפקעו, ולא יינתן בגינם החזר, בכפוף לדין .</p>
+                        <p>בשדרוג תוכנית יקבל המשתמש תוספת קרדיטים יחסית, בהתאם לתוכנית החדשה. בשנמוך תוכנית, יתרת הקרדיטים לא תשתנה עד לחודש הבא .</p>
+                        <p>הקרדיטים אישיים, אינם ניתנים להעברה, אינם ניתנים לפדיון בכסף ואינם ניתנים למימוש מחוץ לשירות. הקרדיטים זמינים למשתמש בכל המכשירים שבהם הוא מחובר לחשבון .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">תקופת ניסיון, חידוש אוטומטי וביטול</h2>
+                    <div class="space-y-2">
+                        <p>תוכנית הניסיון מוגבלת במכסת קרדיטים ובתכונות, וההרשמה אליה מותנית במתן פרטים לגביית תשלום. כאשר יוותרו למשתמש 100 הקרדיטים האחרונים בתוכנית הניסיון, תישלח לו התראה על כך. עם ניצול מלוא קרדיטי תוכנית הניסיון, היא תומר אוטומטית למנוי בתוכנית הבסיסית בתשלום, כמפורט בדף התמחור, אלא אם המשתמש ביטל אותה לפני כן .</p>
+                        <p>מנוי בתשלום מתחדש אוטומטית בכל חודש עד לביטולו על ידי המשתמש .</p>
+                        <p>המשתמש רשאי לבטל את המנוי בכל עת. הביטול ייכנס לתוקף בתום החודש ששולם, והמשתמש יוכל להמשיך להשתמש בשירות כפי תכולת התוכנית לה היה מנוי עד אז. הביטול עוצר את חידוש המנוי בחודש העוקב ואינו מוחק את החשבון .</p>
+                        <p>מנוי שנרכש באתר ניתן לביטול בהגדרות החשבון. מנוי שנרכש באמצעות Apple מבוטל בהגדרות המנויים של חשבון Apple, ומנוי שנרכש באמצעות Google Play מבוטל במרכז המנויים של Google Play .</p>
+                        <p>אין באמור כדי לגרוע מזכותו של משתמש שהוא צרכן לבטל עסקה לפי חוק הגנת הצרכן, התשמ״א-1981 על התקנות שהותקנו מכוחו .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">החזרים</h2>
+                    <div class="space-y-2">
+                        <p>ברכישה באתר יינתן החזר בהתאם לדין. לא יינתן החזר אוטומטי בגין תקופה שחלפה ובה היה מנוי בתוקף, אלא לפי שיקול דעת החברה במקרים מסוימים .</p>
+                        <p>ברכישה בתוך חנות האפליקציות, החזרים ניתנים בידי חנות האפליקציות בכפוף למדיניות אותה חנות. מובהר כי החברה אינה רשאית להעניק החזר בגין רכישה שבוצעה באמצעות חנות האפליקציות של Apple. היה וחנות האפליקציות תאפשר לחברה לקבוע את גובה ההחזר, לא יעלה על עלות התקופה ששולמה וחלפה, אלא לפי שיקול דעת החברה במקרים מסויימים .</p>
+                        <p>היה והחברה תחדל מלתת את השירות לצמיתות, לא יינתן החזר יחסי בגין תקופה ששולמה מראש וטרם נוצלה באתר או בחנות האפליקציות, בכפוף למדיניות אותה חנות .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">כללי שימוש</h2>
+                    <div class="space-y-2">
+                        <p>המשתמש לא ישתמש בשירות באופן בלתי חוקי, מפר זכויות, מטעה או מזיק, ובכלל זה לא: יתחזה לאחר; יטריד או יפגע באחרים; יפגע בזכות לפרטיות או בזכות לפרסום של אחר; יעלה קוד זדוני; ינסה לחדור למערכות; ינסה לגשת לחשבון או לנתונים של משתמש אחר; יעקוף מגבלות טכניות, מכסות או קרדיטים; יבצע הנדסה לאחור, העתקה או מכירה מחדש של השירות; יפעיל בוטים או כלי סריקה אוטומטיים; יעמיס על השירות מעבר לשימוש המותר; ישלח דואר זבל; או יפתח מוצר מתחרה .</p>
+                        <p>המשתמש לא ישתמש בשירות או בתוצרים לצורך אימון, פיתוח או שיפור של מודלים של בינה מלאכותית .</p>
+                        <p>המשתמש לא ישתמש בשירות ליצירה, העלאה או הפצה של תוכן אסור, ובכלל זה: תוכן המנצל קטינים או פוגע בהם, לרבות תוכן מיני הכולל קטינים; תוכן מיני או בוטה; תוכן מיני שנוצר באמצעות Deepfake או טכנולוגיה דומה ללא הסכמת המופיע בו; דברי שנאה או הסתה; אלימות או קיצוניות אלימה; בריונות והטרדה; תוכן הנוגע למוצרים מסוכנים או לפעילות בלתי חוקית; ומדיה מטעה בתמונה, בקול, בווידאו או בטקסט, העלולה לגרום נזק בנושאים רגישים, פוליטיים, חברתיים או בעלי עניין ציבורי .</p>
+                        <p>תוכן המשתמש והתוצרים יעמדו גם בכללי הקהילה והשימוש של הרשתות המחוברות הרלוונטיות .</p>
+                        <p>המשתמש לא ישתמש בשירות לצורך קנייה, מכירה או החלפה של מעורבות בפרסומים (לרבות סימון לייק), עוקבים, תגובות או חשבונות ברשתות .</p>
+                        <p>אין להעלות לשירות מידע מסווג, פרטי כרטיס אשראי, סיסמאות או טוקנים של אחרים, סודות מסחריים, מידע רפואי או פיננסי, או מידע אישי או סודי של צד שלישי ללא הרשאה .</p>
+                        <p>השימוש בשירות כפוף למגבלות התוכנית, ובכלל זה מכסת הקרדיטים, מספר הפעולות ונפח האחסון .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">תוכן המשתמש</h2>
+                    <div class="space-y-2">
+                        <p>תוכן המשתמש נשאר בבעלות המשתמש .</p>
+                        <p>המשתמש מצהיר כי יש בידיו כל הזכויות, ההרשאות וההסכמות הדרושות לתוכן המשתמש, ובכלל זה זכויות יוצרים, סימני מסחר, זכויות פרטיות וזכויות פרסום, וכן הסכמת כל אדם המופיע בתוכן. אם מופיע בתוכן קטין, המשתמש מצהיר שקיבל את הסכמת הורהו או האפוטרופוס שלו .</p>
+                        <p>המשתמש מעניק לחברה רישיון לא בלעדי, כלל עולמי וללא תמורה, הניתן להענקת רישיון משנה לספקי שירות הפועלים מטעם החברה, לשכפל, לאחסן, לעבד, לערוך ולהתאים את תוכן המשתמש ואת התוצרים, לצורך :</p>
+                        <ul class="list-disc list-inside space-y-1 pr-4 text-slate-300">
+                            <li>הפעלת השירות ואספקתו למשתמש, ובכלל זה הפקת התוצרים ;</li>
+                            <li>אחסון, גיבוי, אבטחה ותמיכה ;</li>
+                            <li>התאמה אישית של השירות למשתמש ;</li>
+                            <li>ניתוח, מדידה ושיפור של השירות ;</li>
+                            <li>לימוד, שיפור ואימון של מודל Lumenic ;</li>
+                            <li>עמידה בדין ובדרישות רשות, ואכיפת התנאים .</li>
+                        </ul>
+                        <p>החברה לא תשתמש בתוכן המשתמש לשיווק או לפרסום מחוץ לשירות, ולא תפרסם אותו ברשתות, ללא הסכמת המשתמש .</p>
+                        <p>הרישיון לצורך לימוד, שיפור ואימון של מודל Lumenic חל על כל תוכן המשתמש והתוצרים, ונמשך גם לאחר מחיקת החשבון, בכפוף למדיניות הפרטיות של השירות ולדין החל. יתר הרישיונות לפי סעיף זה יסתיימו עם מחיקת החשבון, למעט במידה הדרושה לגיבוי, לעמידה בדין או לבירור מחלוקת .</p>
+                        <p>על אף האמור לעיל, החברה רשאית להשתמש בנתוני שימוש שעברו אגרגציה והסרת זיהוי לצורך תפעול, אבטחה, מדידה ושיפור השירות, בכפוף לתנאי הרשתות המחוברות לגבי נתונים שמקורם בהן .</p>
+                        <p>השימוש בנתונים אישיים ובנתונים שהתקבלו מהרשתות המחוברות, ובכלל זה לצורך התאמה אישית ואימון המודל, מוסדר במדיניות הפרטיות .</p>
+                        <p>תוכן המשתמש והתוצרים נשמרים בשירות לכל אורך תקופת המנוי הרצופה. האחריות לגיבוי התכנים מוטלת על המשתמש באופן בלעדי, מחוץ לשירות. החברה אינה אחראית לאובדן תוכן שלא נשמר בידי המשתמש .</p>
+                        <p>המשתמש רשאי לייצא את כל התוצרים שהפיק בשירות .</p>
+                        <p>החברה אינה חייבת לבדוק או לסנן מראש את תוכן המשתמש או את התוצרים, ואינה אחראית לתוכן שהמשתמש מעלה או מפיק. אין בכך כדי לגרוע מהאמצעים שהחברה נוקטת למניעת יצירת תוכן אסור, או מזכותה לבדוק, להסיר או לחסום תוכן לפי תנאי השימוש .</p>
+                        <p>החברה רשאית להסיר או לחסום תוכן המפר דין, זכויות של אחר או את תנאי השימוש. כשאין דחיפות, החברה תודיע למשתמש ותאפשר לו לבקש בדיקה. תוכן מסוכן או בלתי חוקי עשוי להיות מוסר מיד .</p>
+                        <p>משתמש רשאי לדווח על תוכן פוגעני שנוצר בשירות באמצעות מנגנון הדיווח באפליקציה, בלי לצאת ממנה, או בדוא״ל לכתובת contact@lumenic-ai.com .</p>
+                        <p>מי שסבור שתוכן בשירות מפר את זכויותיו רשאי לפנות לחברה בכתובת contact@lumenic-ai.com, ולפרט, ככל הניתן: זיהוי היצירה המוגנת; זיהוי התוכן המפר ומיקומו; פרטי קשר; והצהרה בתום לב שהשימוש אינו מורשה. החברה תבדוק את הפנייה, ותהא רשאית להסיר את התוכן באופן זמני, ולאפשר למשתמש שהעלה אותו להגיב .</p>
+                        <p>החברה רשאית לבדוק חשד להפרת תנאי השימוש או הדין, לשמור מידע ותוכן ולמסור אותם לרשויות מוסמכות, ובכלל זה לרשויות אכיפת החוק, כשהדבר נדרש לפי דין או צו, או כדי להגן על זכויות החברה, המשתמשים או הציבור, והכול בכפוף למדיניות הפרטיות .</p>
+                        <p>ככלל, לא תהיה לעובדי החברה גישה שוטפת לתוכן המשתמש. גישה תינתן לעובדי תמיכה מורשים של החברה, רק לפי הצורך, לצורך תמיכה, אבטחה, בירור הפרה או לפי דין ובהתאם לנהלי החברה הפנימיים כפי שיתעדכנו מעת לעת .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">תוצרים ובינה מלאכותית</h2>
+                    <div class="space-y-2">
+                        <p>התוצרים נוצרים באופן אוטומטי בסיוע בינה מלאכותית. הם עלולים להיות שגויים, לא מדויקים או לא מתאימים, ותוצרים דומים עשויים להיווצר גם עבור משתמשים אחרים. רעיונות, תוכניות והמלצות בשירות הם הצעה בלבד .</p>
+                        <p>המשתמש אחראי לבדוק את התוצרים, ובכלל זה עובדות, נתונים, זכויות והתאמה לדין, לפני פרסומם או הסתמכות עליהם .</p>
+                        <p>בכפוף לדין, לזכויות צד שלישי ולתקנון, הזכויות בתוצרים מוקנות למשתמש, והוא רשאי להשתמש בהם לכל מטרה, לרבות מטרה מסחרית. החברה אינה מתחייבת שהתוצרים ייחודיים או שניתן לרשום בהם זכויות .</p>
+                        <p>תבניות, אלמנטים עיצוביים ורכיבים אחרים של Lumenic המשולבים בתוצרים נשארים בבעלות החברה. החברה מעניקה למשתמש רישיון לא בלעדי להשתמש בהם כחלק מהתוצר, כפי שהופק באמצעות השירות, ולא בנפרד ממנו. לגבי תוצרים שכבר הופקו, הרישיון נמשך גם לאחר סיום המנוי .</p>
+                        <p>התוצרים עשויים לשאת סימון גלוי או סמוי כתוכן שנוצר בבינה מלאכותית. המשתמש לא יסיר את הסימון, ויסמן את התוצרים כתוכן שנוצר בבינה מלאכותית כשהדבר נדרש לפי כללי הרשת שבה הוא מפרסם אותם .</p>
+                        <p>אין להסתמך על השירות או על התוצרים לצורך החלטות רפואיות, משפטיות, פיננסיות, בטיחותיות או תעסוקתיות .</p>
+                        <p>החברה אינה אחראית לחוסר דיוק בנתונים, בניתוחים או בתוצרים המוצגים בשירות, הנובע ממגבלות השירות, מתקלה חיצונית, מנתונים שהתקבלו מהרשתות המחוברות או מנתונים שהמשתמש הזין. המשתמש אחראי לנכונות הנתונים שהוא מזין לשירות .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">חיבור לרשתות חברתיות ולשירותי צד שלישי</h2>
+                    <div class="space-y-2">
+                        <p>המשתמש רשאי לחבר לחשבונו את חשבונותיו בFacebook ו-Instagram של Meta, ב-YouTube ובשירותים אחרים של Google, וב-TikTok. החיבור נעשה באישור המשתמש, ובשלב זה הוא מאפשר לחברה לקרוא מידע בלבד, ובכלל זה נתוני פרופיל, נתוני צפייה ונתוני ביצועים של תוכן, דפים וקמפיינים, בלי לכתוב, לפרסם או לפעול בשם המשתמש .</p>
+                        <p>הרשאות הגישה שהמשתמש נותן לרשתות המחוברות נשמרות על גבי מכשיר המשתמש, והחברה משתמשת בהן לעדכון הנתונים מהרשתות גם כשהמשתמש אינו משתמש באפליקציה. ניתוק הרשת, מתוך האפליקציה או מתוך הגדרות הרשת, מבטל את ההרשאה ומוחק אותה משרתי החברה .</p>
+                        <p>המשתמש אחראי להרשאות שנתן, ורשאי לבטל אותן בכל עת .</p>
+                        <p>השימוש ברשתות המחוברות כפוף לתנאי השימוש ולמדיניות הפרטיות שלהן. המשתמש מתחייב לעמוד בתנאי צד שלישי החלים עליו בעת השימוש באפליקציה. מובהר כי בחיבור דפי Facebook, המשתמש מסכים גם לתנאי השימוש והקהילה של Meta .</p>
+                        <p>מובהר כי בעלי זכויות במדיה ברשתות המחוברות רשאים להגביל את השימוש בהם, והמשתמש יכבד הגבלות אלה .</p>
+                        <p>הרשתות המחוברות רשאיות לשנות, להגביל או להפסיק את הגישה לנתונים או את התכונות שלהן. החברה אינה אחראית לתקלה, לשינוי או לאובדן מידע אצל רשת מחוברת, ולפגיעה בשירות הנובעת מכך .</p>
+                        <p>היה ותוטמענה בשירות תכונות נוספות שיאפשרו פרסום, תזמון פוסטים או רכישת מודעות בשם המשתמש, תימסר על כך הודעה למשתמשים .</p>
+                        <p>השירות אינו כולל פרסומות של צד שלישי, קישורים ממומנים או חנות תוספים .</p>
+                        <p>השירות עשוי לכלול קישורים לאתרים, לשירותים ולתכנים של צדדים שלישיים, או להציג תכנים כאלה. החברה אינה שולטת בהם ואינה אחראית לתוכנם, לזמינותם, לתנאיהם או לנוהלי הפרטיות שלהם. השימוש בהם הוא באחריות המשתמש ולפי תנאיהם .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">קניין רוחני ורישיון שימוש</h2>
+                    <div class="space-y-2">
+                        <p>כל הזכויות בשירות, ובכלל זה בקוד, בממשק, בעיצוב, במותג, בתבניות, במאגרי המידע ובמודל Lumenic, הן של החברה או של מעניקי הרישיון שלה .</p>
+                        <p>החברה מעניקה למשתמש רישיון אישי, לא בלעדי ובלתי-עביר, להתקין את האפליקציה ולהשתמש בה, בלי הגבלת זמן. באפליקציה שהורדה מחנות האפליקציות של Apple, הרישיון הוא לשימוש במוצרי Apple שבבעלות המשתמש או בשליטתו בלבד, ולפי כללי השימוש (Usage Rules) שב-Apple Media Services Terms and Conditions, למעט שימוש מותר בחשבונות נוספים באמצעות שיתוף משפחתי (Family Sharing), רכישה מרוכזת (volume purchasing) או צוואה דיגיטלית (Legacy Contacts) .</p>
+                        <p>הגישה לשירות בתשלום ולתכונותיו ניתנת למשתמש לתקופת המנוי בלבד ולפי התוכנית שנרכשה, ובכפוף לתנאים .</p>
+                        <p>המשתמש לא יציג את עצמו כשותף או כנציג של החברה, ולא ישתמש בשם או בלוגו של החברה ללא אישורה. החברה לא תציג את שם המשתמש או את הלוגו שלו ללא הסכמתו .</p>
+                        <p>משוב, הצעות ודיווחי תקלות שהמשתמש מוסר לחברה ניתנים לה ללא תמורה. המשתמש מוותר על כל זכות, לרבות זכות קניין רוחני, במשוב ובכל תוצר, פיתוח או שיפור שייווצר על בסיסו, והחברה רשאית להשתמש בהם ללא הגבלה. החברה אינה חייבת להשתמש במשוב .</p>
+                        <p>השירות עשוי לכלול רכיבי תוכנה בקוד פתוח, הכפופים לתנאי הרישיון שלהם .</p>
+                        <p>מובהר כי בתביעת צד שלישי שעניינה הפרת זכויות קניין רוחני באפליקציה או בשימוש בה, Apple לא תהא אחראית לבירור התביעה, להגנה מפניה, לפשרה בה ולסילוקה .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">פרטיות</h2>
+                    <div class="space-y-2">
+                        <p>החברה אוספת ומעבדת מידע אישי בהתאם למדיניות הפרטיות, המפורסמת באתר ובאפליקציה ועשויה להתעדכן מעת לעת. מדיניות הפרטיות מפרטת אילו נתונים נאספים, לאילו מטרות, עם מי הם משותפים, כמה זמן הם נשמרים, ואיך ניתן לבקש את מחיקתם .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">הודעות ודיוור</h2>
+                    <div class="space-y-2">
+                        <p>החברה תשלח למשתמש מעת לעת, הודעות שירות, אבטחה, חיוב ועדכונים בדוא״ל, בהודעה בשירות או בהודעת push .</p>
+                        <p>המשתמש מסכים לקבל מהחברה הודעות, מסמכים והסכמים באופן אלקטרוני, לרבות בדוא״ל או בשירות עצמו, ובכלל זה בהודעות והתראות המוצגות במערכת. כל סוג הודעה כזו יחשב הודעה בכתב, ככל הדין מתיר זאת. הודעה שנמסרה באופן אלקטרוני תיחשב כאילו נמסרה עם הצגתה במערכת או שליחתה, לפי העניין .</p>
+                        <p>המשתמש מסכים במפורש לקבל דברי פרסומת מהחברה כתנאי לשימוש בשירות. מובהר כי המשתמש רשאי להסיר את עצמו מרשימת הדיוור בכל עת, בכל הנוגע לדברי פרסומת. הסרה מדיוור אינה מפסיקה הודעות שירות, אבטחה, חיוב או עדכונים אחרים הנוגעים לשירות עצמו .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">תמיכה ותחזוקה</h2>
+                    <div class="space-y-2">
+                        <p>החברה לבדה אחראית לשירותי התחזוקה והתמיכה באפליקציה, כמפורט בתנאים או כנדרש בדין. מובהר כי Apple או Google אינן חייבות לספק שירותי תחזוקה או תמיכה כלשהם .</p>
+                        <p>פניות תמיכה יש לשלוח לכתובת contact@lumenic-ai.com. החברה אינה מתחייבת לזמני מענה .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">השעיה, סיום ומחיקת חשבון</h2>
+                    <div class="space-y-2">
+                        <p>המשתמש רשאי לסגור את חשבונו ולבקש את מחיקתו בכל עת, מתוך האפליקציה או באתר .</p>
+                        <p>החברה רשאית להשעות או לסגור חשבון בשל הפרת תנאי השימוש, אי תשלום, דרישת רשות, סיכון אבטחתי, חשד להונאה, פגיעה בזכויות של אחרים, הפסקת השירות או תלות בספק המונעת את מתן השירות. ככל שניתן, החברה תמסור הודעה מראש ותאפשר לתקן את ההפרה. במקרים דחופים, ובכלל זה אירוע אבטחה, הונאה, תוכן בלתי חוקי או דרישת רשות, החברה רשאית לפעול מיד. המשתמש רשאי לבקש בדיקה של ההחלטה .</p>
+                        <p>לאחר סגירת החשבון לבקשת המשתמש, יוכל המשתמש, במשך 30 ימים, לייצא את החומרים שהפיק בשירות (להלן: "תקופת הייצוא"). החברה שומרת לעצמה את הזכות למחוק או למנוע גישה לתוצרי המשתמש שלא יוצאו עד לתום תקופה זו. נתונים שמקורם ברשתות המחוברות יימחקו מהמערכות הפעילות של החברה בהקדם לאחר בקשת המשתמש או סגירת החשבון. פרטים נוספים על מחיקת נתונים מופיעים במדיניות הפרטיות .</p>
+                        <p>במהלך תקופת הייצוא, משתמש שחשבונו נסגר מיוזמתו יהא רשאי לבקש את שחזור החשבון .</p>
+                        <p>כאשר החברה היא שסגרה את החשבון :</p>
+                        <p>בשל אי תשלום: במשך 30 ימים ממועד הסגירה יוכל המשתמש לייצא את החומרים שהפיק, ולבקש את שחזור החשבון לאחר הסדרת החוב; </p>
+                        <p>בשל הפרת תנאי השימוש: שחזור החשבון יתאפשר רק באישור החברה, בהתאם לשיקול דעתה כפי שעשוי לבוא לידי ביטוי בנהלים שיתפרסמו על ידה מעת לעת. החברה רשאית למנוע כליל ייצוא של תוכן ותוצרים הקשורים להפרה, ובמשך 30 ימים ממועד הסגירה תאפשר ייצוא של יתר התוצרים, ככל שהדבר אינו מנוגד לדין; </p>
+                        <p>בשל דרישת רשות, הוראת דין או סיכון אבטחתי: ייצוא ושחזור יתאפשרו רק במידה שהדין והנסיבות מתירים זאת; </p>
+                        <p>בשל הפסקת השירות לצמיתות: החברה תודיע על כך מראש, ככל שניתן, והמשתמש יוכל לייצא את החומרים שהפיק עד מועד ההפסקה. לא יתאפשר שחזור .</p>
+                        <p>משתמש שחשבונו נסגר בידי החברה בשל הפרת התנאים, יפתח חשבון חדש, בעצמו או באמצעות אחר, רק בכפוף לבחינה ואישור פרטניים של החברה .</p>
+                        <p>סגירת החשבון אינה מבטלת מנוי שנרכש באמצעות Apple או Google. על המשתמש לבטל את המנוי בעצמו בהגדרות החנות, אחרת החנות עלולה להמשיך לחייב אותו .</p>
+                        <p>החברה רשאית לקבוע מדיניות לגבי חשבונות שאינם פעילים, לאחר הודעה מראש ומתן אפשרות מוגבלת לייצא תוכן .</p>
+                        <p>הוראות התנאים שמטבען נועדו לחול גם לאחר סיום ההתקשרות ימשיכו לחול, ובכלל זה ההוראות בדבר קניין רוחני, רישיונות שהמשתמש העניק, תשלומים, הגבלת אחריות, שיפוי ויישוב סכסוכים .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">היעדר מצגים והגבלת אחריות</h2>
+                    <div class="space-y-2">
+                        <p>החברה תספק את השירות במאמץ סביר ובהתאם לתיאורו. בכפוף לדין, השירות ניתן כמות שהוא, והחברה אינה מתחייבת לזמינות רציפה, להיעדר תקלות, להתאמה למטרה מסוימת, לדיוק או למקוריות של התוצרים, לאבטחה מוחלטת או לתוצאה עסקית כלשהי .</p>
+                        <p>החברה לבדה אחראית לאחריות לשירות, מפורשת או מכוח דין, במידה שלא הוחרגה. אם האפליקציה אינה עומדת באחריות החלה, משתמש שרכש אותה בחנות האפליקציות של Apple רשאי להודיע על כך ל-Apple, ו-Apple תחזיר לו את מחיר האפליקציה. במידה המרבית המותרת בדין, אין ל-Apple חובה נוספת כלשהי בקשר לאחריות לאפליקציה .</p>
+                        <p>החברה, ולא Apple, אחראית לטפל בכל תביעה של המשתמש או של צד שלישי בקשר לאפליקציה או לשימוש בה, ובכלל זה תביעות בגין אחריות למוצר, טענה שהאפליקציה אינה עומדת בדרישה חוקית או רגולטורית, ותביעות מכוח דיני הגנת הצרכן .</p>
+                        <p>בכפוף לדין, החברה לא תהיה אחראית לנזק עקיף, תוצאתי או מיוחד, לאובדן רווח, הכנסה, הזדמנות, מוניטין או נתונים, לנזק שמקורו בספק צד שלישי או ברשת מחוברת, או לנזק הנובע מהסתמכות על התוצרים .</p>
+                        <p>בכפוף לדין, האחריות הכוללת של החברה כלפי המשתמש לא תעלה על הסכום ששילם לה המשתמש ב-12 החודשים שקדמו לאירוע שבגינו נתבעה, ואם לא שילם, על 100 דולר ארה״ב .</p>
+                        <p>אין בתנאים כדי להגביל את אחריות החברה כלפי המשתמש מעבר למותר בדין .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">שיפוי</h2>
+                    <div class="space-y-2">
+                        <p>המשתמש ישפה את החברה, באופן מלא ובכפוף לדין, בגין כל תביעה של צד שלישי הנובעת מתוכן המשתמש, מהיעדר זכויות או הסכמות בתוכן, משימוש אסור בשירות, מהפרת דין או מהפרת תנאי של ספק צד שלישי או של רשת מחוברת .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">שינוי תנאי השימוש</h2>
+                    <div class="space-y-2">
+                        <p>החברה רשאית לעדכן את תנאי השימוש בכל עת, בין היתר בשל שינוי בשירות, בתמחור, בספקים, בדין, באבטחה, במודל העסקי, ביכולות הבינה המלאכותית או בחיבורים לרשתות .</p>
+                        <p>על שינוי מהותי תימסר הודעה מראש באמצעים אלקטרוניים, ובה תאריך התחילה וקישור לנוסח המעודכן. שינוי מהותי בזכויות המשתמש, בשימוש בנתוניו או בחיוב, או שינוי שהדין מחייב לגביו הסכמה, ילווה בהתניית המשך השימוש בשירות באישור המשתמש. ביתר השינויים, המשך השימוש לאחר מועד התחילה ייחשב כהסכמה, בכפוף לדין .</p>
+                        <p>החברה תודיע למשתמשים על שינוי במדיניות המנויים, הביטול וההחזרים .</p>
+                        <p>גרסת התנאים, תאריך הפרסום ותאריך התחילה יצוינו בראש התנאים .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">דין, סמכות שיפוט ויישוב מחלוקות</h2>
+                    <div class="space-y-2">
+                        <p>על התנאים ועל כל עניין הנובע מהם יחול הדין הישראלי בלבד .</p>
+                        <p>סמכות השיפוט הייחודית בכל עניין הנובע מתנאי השימוש תהיה לבתי המשפט המוסמכים בישראל במחוז תל אביב .</p>
+                        <p>לפני פתיחה בהליך, הצד התובע יפנה לצד השני בכתב, והצדדים ינסו ליישב את המחלוקת במשך 30 ימים. אין בכך כדי למנוע פנייה לערכאות מוסמכות בבקשה לסעד דחוף .</p>
+                        <p>תנאי השימוש נכתבו בעברית. אם יפורסם תרגום, הנוסח העברי יגבר בכל מקרה של סתירה .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">הוראות כלליות</h2>
+                    <div class="space-y-2">
+                        <p>התנאים, מדיניות הפרטיות ותנאי התוכנית מהווים את ההסכם המלא בין הצדדים בעניין השירות .</p>
+                        <p>כותרות הפרקים והסעיפים נועדו לנוחות הקריאה בלבד, ואין להן תוקף פרשני .</p>
+                        <p>אם ייקבע שהוראה בתנאים אינה תקפה, יתר ההוראות יעמדו בתוקפן .</p>
+                        <p>הימנעות של החברה מלעמוד על זכות לא תיחשב ויתור עליה. ויתור יהיה תקף רק אם נעשה במפורש ובכתב .</p>
+                        <p>המשתמש אינו רשאי להעביר את זכויותיו או את חובותיו לפי התנאים. החברה רשאית להעביר את זכויותיה וחובותיה, ובכלל זה במסגרת מיזוג, רכישה או מכירת פעילות .</p>
+                        <p>החברה לא תהיה אחראית לעיכוב או לאי ביצוע של התחייבויותיה, ובכלל זה לזמינות השירות ולתמיכה, הנובעים מאירוע שאינו בשליטתה הסבירה, ובכלל זה: מלחמה ופעולות איבה; גיוס חירום או גיוס מילואים נרחב של עובדי החברה או מי מטעמה; השבתה או תקלה ממושכת אצל ספקי ענן או ספקי AI; מתקפת סייבר שלא ניתן היה למנוע באמצעי אבטחה סבירים; מגפה; ונפילה של תשתיות אינטרנט, תקשורת או חשמל. התחייבויות החברה יושעו כל עוד האירוע נמשך .</p>
+                        <p>הודעות למשתמש יישלחו לכתובת הדוא״ל הרשומה בחשבון או יוצגו בשירות, כמפורט בפרק ההודעות. רישומי החברה לגבי גרסת תנאי השימוש, מועד הצגת או משלוח ההודעה ואישור המשתמש ישמשו ראיה למסירה .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">יצירת קשר</h2>
+                    <div class="space-y-2">
+                        <p>Lumenic [כתובת רשומה וטלפון] .</p>
+                        <p>כתובות דוא״ל לפניות, לתלונות ולתביעות: contact@lumenic-ai.com. לדיווח על אירועי אבטחה ופרצות: security@lumenic-ai.com. לפניות בנושא פרטיות: privacy@lumenic-ai.com .</p>
+                        <p>מובהר כי כתובות הדוא"ל האמורות בכל מקום בתנאי השימוש עשויות להשתנות כל העת, וכי הכתובות העדכניות עשויות להיות אלה המפורסמות ברחבי האפליקציה או האתר, ולא בתנאי השימוש .</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+		
+		<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumenic - מדיניות הפרטיות</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Heebo', 'sans-serif'] },
+                    colors: { brand: { 50: '#f0f6ff', 100: '#e0edff', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Heebo', sans-serif; background-color: #0b0f17; color: #e2e8f0; }
+        .glass-header { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(12px); }
+        .glass-card { background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(8px); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0b0f17; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+    <header class="sticky top-0 z-50 glass-header border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-brand-500/20">
+                    <i class="fa-solid fa-lightbulb text-white text-lg"></i>
+                </div>
+                <span class="text-xl font-bold text-white">Lumenic</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-xs text-slate-400 font-medium">מדיניות הפרטיות</span>
+            </div>
+        </div>
+    </header>
+    <main class="flex-grow">
+        <section class="py-12 md:py-16 border-b border-slate-800/60 bg-gradient-to-b from-slate-900/50 to-transparent">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <span class="inline-block px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-500 text-xs font-semibold uppercase tracking-wider mb-4">עודכן לאחרונה: 29 אוקטובר 2026 </span>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4">מדיניות הפרטיות של Lumenic </h1>
+            </div>
+        </section>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="space-y-8 text-slate-300 text-sm sm:text-base leading-relaxed">
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <p>ברוכים הבאים ל-Lumenic. מדיניות פרטיות זו מסבירה איזה מידע אישי אנו אוספים, כיצד אנו משתמשים בו, עם מי אנו משתפים אותו, כמה זמן אנו שומרים אותו ומהן זכויותיך. המדיניות חלה על אתר האינטרנט בכתובת lumenic-ai.com, על אפליקציית Lumenic למכשירי iOS ו-Android ועל השירותים הנלווים להם (להלן יחד: "השירות"). מונחים שלא הוגדרו במדיניות זו יפורשו כהגדרתם בתקנון השימוש של Lumenic .</p>
+                    <p>המדיניות מנוסחת בלשון זכר מטעמי נוחות בלבד, אך מתייחסת לכל המגדרים .</p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">1. מי אנחנו וכיצד ליצור איתנו קשר</h2>
+                    <div class="space-y-2">
+                        <p>השירות מופעל על ידי לומניק, 037779709, מושב ישע 244 (להלן: "Lumenic" או "אנחנו"). Lumenic היא בעלת השליטה במאגר המידע שבו נשמר המידע האישי שלך .</p>
+                        <ul class="list-disc list-inside space-y-1 pr-2">
+                            <li>לפניות בנושא פרטיות ולמימוש זכויותיך: privacy@lumenic-ai.com </li>
+                            <li>לדיווח על אירוע אבטחה או על חולשת אבטחה: security@lumenic-ai.com </li>
+                            <li>לפניות כלליות ותמיכה: contact@lumenic-ai.com </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">2. האם חובה למסור מידע</h2>
+                    <div class="space-y-2">
+                        <p>אינך חייב על פי דין למסור לנו מידע אישי, ומסירת המידע תלויה ברצונך ובהסכמתך. עם זאת, בלי פרטים מסוימים לא נוכל לספק לך את השירות או חלק ממנו. כך למשל, בלי כתובת דוא"ל ותאריך לידה לא ניתן להירשם לשירות; בלי הסכמה לעיבוד אצל ספקי הבינה המלאכותית לא ניתן להשתמש ביכולות ה-AI; ובלי חיבור של רשת חברתית לא ניתן לקבל ניתוח ביצועים והתאמה אישית המבוססים על אותה רשת .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">3. איזה מידע אנו אוספים</h2>
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-white">3.1 מידע שאתה מוסר לנו </h3>
+                            <ul class="list-disc list-inside space-y-2 pr-2">
+                                <li>פרטי חשבון: שם, שם משפחה, כתובת דוא"ל, סיסמה ותאריך לידה. הסיסמה נשמרת באופן מאובטח, ואינה נשמרת כטקסט גלוי .</li>
+                                <li>פרטי העסק: נישת התוכן, קהלי היעד, המותג, השפה, הפלטפורמות שבהן אתה פועל, המוצרים והשירותים, המבצעים וההצעות, ופרטים נוספים שאתה מזין בפרופיל העסק (Brand DNA) .</li>
+                                <li>תוכן שאתה מעלה או מזין: קליפים, סרטונים, תמונות, קבצי אודיו, לוגו וטקסט, ובמסלול Blogger גם סיפורים אישיים ותשובות לשאלות (My Story, Weekly Questions ו-Story Bank). תוכן זה עשוי לכלול מידע עליך ועל אנשים אחרים, לרבות דמותם וקולם. אנו מבקשים שלא להעלות לשירות מידע רפואי, מידע פיננסי או מידע רגיש אחר, כמפורט בתקנון .</li>
+                                <li>תוצרים: רעיונות, תסריטים, כתוביות, קריינות, תמונות, גרסאות וידאו ותוכניות תוכן שהשירות מפיק עבורך, וכן תמלולים של קטעי האודיו שהעלית .</li>
+                                <li>פניות ותכתובות: תוכן הפניות שלך אלינו, לרבות דיווחים על תוכן פוגעני .</li>
+                                <li>הסכמות והצהרות: ההסכמות שנתת או ביטלת (ראו סעיף 7), ההצהרה על הסכמת הורה למשתמש קטין, ואישור התקנון והמדיניות, לרבות הגרסה שאושרה ומועד האישור .</li>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-white">3.2 מידע שמתקבל כשאתה נכנס לחשבון באמצעות Apple, Facebook או Instagram </h3>
+                            <p>שמך, כתובת הדוא"ל שלך ומזהה החשבון, כפי שאתה מאשר במסך ההתחברות של אותו שירות. בכניסה באמצעות Apple ניתן להסתיר את כתובת הדוא"ל, ובמקרה זה נקבל כתובת ממסרת שמנפיקה Apple .</p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-white">3.3 מידע מהרשתות החברתיות שאתה מחבר לחשבון </h3>
+                            <p>אם תבחר לחבר לחשבונך חשבון ברשת חברתית, נקרא ממנה את המידע הבא, בהתאם להרשאות שתאשר :</p>
+                            <ul class="list-disc list-inside space-y-2 pr-2">
+                                <li>Facebook ו-Instagram (של Meta): פרטי הפרופיל או הדף; נתוני ביצועים ותובנות של התוכן, של הדפים ושל החשבון, כגון חשיפות, צפיות, מעורבות ונתוני קהל מצרפיים; ונתוני ביצועים של קמפיינים ממומנים .</li>
+                                <li>YouTube ו-Google Ads (של Google): פרטי הערוץ; נתוני ביצועים של הסרטונים ושל הערוץ, כגון צפיות, זמן צפייה ומעורבות; ונתוני ביצועים של קמפיינים ממומנים .</li>
+                                <li>TikTok: פרטי הפרופיל (מזהה, שם תצוגה, תמונת פרופיל, ביוגרפיה, קישור לפרופיל וסטטוס מאומת); נתונים סטטיסטיים של החשבון (מספר עוקבים, נעקבים, לייקים וסרטונים); ורשימת הסרטונים הציבוריים שלך (כותרת, תיאור, משך, תמונה ממוזערת וקישורים) .</li>
+                            </ul>
+                            <p>איננו קוראים הודעות פרטיות, איננו שומרים קבצי וידאו מהרשתות, ואיננו מפרסמים תוכן או מבצעים פעולה כלשהי ברשתות בשמך .</p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-white">3.4 מידע מספק הסליקה ומחנויות האפליקציות </h3>
+                            <p>מספק הסליקה באתר ומחנויות האפליקציות אנו מקבלים את המידע הדרוש לזיהוי הרכישה ולניהול המנוי: שם, כתובת דוא"ל, סוג התוכנית ומצב התשלום. פרטי אמצעי התשלום אינם מגיעים אלינו .</p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-white">3.5 מידע שנאסף באופן אוטומטי </h3>
+                            <p>כתובת IP, מזהים טכניים של המכשיר ושל האפליקציה, סוג המכשיר, מערכת ההפעלה והדפדפן, מועדי גישה ופעולות בשירות, ולוגים טכניים של שגיאות. באתר נעשה שימוש בעוגיית סשן חיונית בלבד (ראו סעיף 12) .</p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-white">3.6 מידע שאיננו אוספים </h3>
+                            <p>איננו אוספים מיקום מדויק, אנשי קשר מהמכשיר, מידע ביומטרי, מזהים פרסומיים (כגון IDFA) או פרטי כרטיס אשראי. איננו משתמשים בטכנולוגיה לזיהוי אנשים לפי פניהם או לפי קולם .</p>
                         </div>
                     </div>
-                </nav>
+                </div>
 
-                <!-- Main Legal Text Sections -->
-                <div class="lg:col-span-8 xl:col-span-9 space-y-10" id="sectionsContainer">
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">4. מטרות השימוש במידע</h2>
+                    <div class="space-y-2">
+                        <p>אנו משתמשים במידע למטרות הבאות בלבד :</p>
+                        <ul class="list-disc list-inside space-y-1 pr-2">
+                            <li>יצירת החשבון וניהולו, וכניסה לחשבון .</li>
+                            <li>אספקת השירות: הפקת רעיונות, תסריטים, כתוביות, קריינות, תמונות, גרסאות וידאו ותוכניות תוכן .</li>
+                            <li>הצגת נתוני הביצועים מהרשתות שחיברת וניתוחם עבורך .</li>
+                            <li>התאמה אישית של השירות עבורך (ראו סעיף 5) .</li>
+                            <li>שיפור ואימון של מודל Lumenic, רק בהסכמתך הנפרדת ובמגבלות שבסעיף 6.2 .</li>
+                            <li>ניהול המנוי, החיוב והקרדיטים .</li>
+                            <li>שליחת הודעות שירות, אבטחה וחיוב, ודיוור שיווקי רק בהסכמתך (ראו סעיף 11) .</li>
+                            <li>מענה לפניות ותמיכה .</li>
+                            <li>אבטחת השירות, מניעת הונאה ושימוש לרעה, ואכיפת התקנון .</li>
+                            <li>עמידה בדרישות הדין ובדרישות של רשויות מוסמכות, והגנה על זכויותינו בהליכים משפטיים .</li>
+                            <li>הפקת נתונים סטטיסטיים מצרפיים שאינם מזהים, לצורך תפעול, מדידה ושיפור של השירות .</li>
+                        </ul>
+                        <p>לא נשתמש במידע למטרה אחרת בלי לקבל את הסכמתך, אלא אם הדין מתיר זאת .</p>
+                    </div>
+                </div>
 
-                    <!-- ========================================================= -->
-                    <!-- PART 1: TERMS OF SERVICE (תקנון Lumenic)                   -->
-                    <!-- ========================================================= -->
-                    <div id="group-terms" class="doc-group space-y-6">
-                        <div class="flex items-center gap-3 pb-2 border-b border-slate-800">
-                            <div class="w-9 h-9 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-500">
-                                <i class="fa-solid fa-file-contract"></i>
-                            </div>
-                            <div>
-                                <h2 class="text-2xl font-black text-white">חלק א׳: תקנון Lumenic</h2>
-                                <p class="text-xs text-slate-400">תנאי השימוש המלאים בפלטפורמה, באתר ובאפליקציה</p>
-                            </div>
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">5. התאמה אישית ובניית פרופיל</h2>
+                    <div class="space-y-2">
+                        <p>כדי להתאים את השירות אליך, השירות בונה עבורך פרופיל אישי. הפרופיל מבוסס על פרטי העסק שמסרת, על התוכן שהעלית ועל התוצרים שהופקו עבורך, ועל נתוני הביצועים מהרשתות שחיברת. הפרופיל משמש להצעת רעיונות ותוכן המותאמים לנישה שלך, לקהל שלך ולמה שעבד עבורך ברשתות .</p>
+                        <ul class="list-disc list-inside space-y-1 pr-2">
+                            <li>הפרופיל משמש רק לשירות שאתה מקבל, ואינו משמש להתאמת תוצרים למשתמשים אחרים .</li>
+                            <li>בניית הפרופיל מנתוני רשת מסוימת נעשית רק לאחר שנתת לכך הסכמה בעת חיבור הרשת (ראו סעיף 7) .</li>
+                            <li>נתוני ביצועים של קמפיינים ממומנים משמשים להצגה עבורך בלבד, ואינם משמשים לבניית הפרופיל .</li>
+                            <li>ההצעות שהשירות מפיק הן המלצות בלבד. השירות אינו מקבל החלטות אוטומטיות שיש להן השפעה משפטית או השפעה מהותית דומה עליך .</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">6. בינה מלאכותית</h2>
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-white">6.1 עיבוד המידע אצל ספקי בינה מלאכותית </h3>
+                            <p>כדי להפיק עבורך את התוצרים, אנו מעבירים לעיבוד אצל ספקי בינה מלאכותית חיצוניים את המידע הדרוש לכך: התוכן שאתה מזין או מעלה, ובכלל זה טקסט, ולפי העניין גם תמונות, לוגו וקבצי אודיו; פרטי העסק; תמלולים; ונתוני ביצועים מהרשתות שחיברת. נתוני קמפיינים ממומנים אינם מועברים לספקי הבינה המלאכותית .</p>
+                            <p>ספקי הבינה המלאכותית משמשים, בין היתר, לכתיבת טקסטים, תסריטים וניתוחים, ליצירת תמונות, לקריינות סינתטית ולתמלול אודיו. שמות הספקים מוצגים לך במסך ההסכמה באפליקציה .</p>
+                            <p>ההעברה נעשית רק לאחר שנתת לכך הסכמה מפורשת באפליקציה, לפני השימוש הראשון ביכולות ה-AI. אם לא תיתן הסכמה, או אם תבטל אותה, לא תוכל להשתמש ביכולות ה-AI של השירות, ושאר חלקי השירות יישארו זמינים לך .</p>
+                            <p>ספקי הבינה המלאכותית מעבדים את המידע עבורנו בלבד ולצורך הפקת התוצרים, ואינם משתמשים בו לאימון המודלים שלהם. חלק מהספקים עשויים לשמור את המידע לתקופה מוגבלת לצורכי אבטחה ומניעת שימוש לרעה, בהתאם לתנאיהם .</p>
                         </div>
 
-                        <!-- Terms Intro -->
-                        <div class="term-card glass-card rounded-2xl p-6 sm:p-8 transition-all">
-                            <div class="text-slate-300 space-y-3 leading-relaxed text-sm sm:text-base">
-                                <p>ברוכים הבאים ל-<strong>Lumenic</strong>. תקנון זה מסדיר את השימוש באתר, באפליקציות ובשירותים של Lumenic. יש לקרוא אותו בעיון. הרשמה לשירות, אישור התקנון או שימוש בשירות מהווים הסכמה לתנאים. מי שאינו מסכים לתנאים אינו רשאי להשתמש בשירות.</p>
-                                <p class="text-xs text-slate-400">התקנון מנוסח בלשון זכר מטעמי נוחות בלבד, ומתייחס לכל המגדרים.</p>
-                            </div>
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-white">6.2 אימון מודל Lumenic </h3>
+                            <p>Lumenic מפתחת מודל משלה, המשמש לשיפור האיכות של ההצעות והתוצרים בשירות. בהסכמתך הנפרדת, נשתמש בתוכן שהעלית ובתוצרים שהופקו עבורך לשיפור ולאימון של מודל Lumenic. לפני השימוש לאימון יוסר מהמידע כל פרט מזהה, באופן שאינו מאפשר לזהות אותך או משתמש אחר .</p>
+                            <ul class="list-disc list-inside space-y-1 pr-2">
+                                <li>ההסכמה לאימון היא רשות. אם לא תיתן אותה, תקבל את השירות במלואו .</li>
+                                <li>ניתן לבטל את ההסכמה בכל עת בהגדרות החשבון. הביטול חל מכאן והלאה: מידע חדש לא ישמש לאימון, אך לא ניתן להוציא ממודל קיים מידע שכבר שימש לאימונו .</li>
+                                <li>נתונים מהרשתות המחוברות אינם משמשים לאימון מודל Lumenic .</li>
+                                <li>המידע ששימש לאימון, לאחר שהוסר ממנו הזיהוי, ממשיך להתקיים במודל גם לאחר מחיקת החשבון. מידע זה אינו מאפשר לזהות אותך, ולא ננסה לזהות אותך באמצעותו .</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">7. ההסכמות שאנו מבקשים</h2>
+                    <div class="space-y-2">
+                        <p>אנו מבקשים ממך הסכמות נפרדות, כל אחת במסך נפרד באפליקציה, לפני שהשימוש המתאים מתחיל :</p>
+                        <ul class="list-disc list-inside space-y-1 pr-2">
+                            <li>הסכמה לעיבוד אצל ספקי הבינה המלאכותית (סעיף 6.1), בלעדיה לא ניתן להשתמש ביכולות ה-AI .</li>
+                            <li>הסכמה לשימוש בתוכן ובתוצרים לאימון מודל Lumenic (סעיף 6.2). הסכמה זו היא רשות, וסירוב לה אינו פוגע בשירות .</li>
+                            <li>הסכמה בעת חיבור של כל רשת חברתית, לקריאת המידע המפורט בסעיף 3.3 ולשימוש בו להצגה, לניתוח ולהתאמה אישית, לרבות בניית פרופיל (סעיף 5). בלעדיה לא ניתן לקבל שירותים המבוססים על אותה רשת .</li>
+                            <li>הסכמה לקבלת דיוור שיווקי (סעיף 11). הסכמה זו היא רשות, והיא אינה תנאי לשימוש בשירות .</li>
+                        </ul>
+                        <p>ניתן לבטל כל הסכמה בכל עת, בהגדרות החשבון או בפנייה לכתובת privacy@lumenic-ai.com. ביטול ההסכמה חל מכאן והלאה, ואינו פוגע בחוקיות השימוש שנעשה לפניו. אנו מתעדים את ההסכמות שניתנו ושבוטלו, לרבות נוסחן ומועדן .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">8. חיבור רשתות חברתיות</h2>
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-white">8.1 כיצד החיבור פועל </h3>
+                            <p>החיבור לרשת נעשה רק ביוזמתך ובאישורך, באמצעות מסך ההרשאה של הרשת עצמה. החיבור מאפשר לנו לקרוא מידע. כדי לקרוא את המידע, הרשת מנפיקה אסימון גישה (טוקן). איננו מקבלים את הסיסמה שלך לרשת </p>
+                            <ul class="list-disc list-inside space-y-1 pr-2">
+                                <li>אסימון הגישה נשמר באופן מאובטח ומוצפן, ומשמש לקריאת המידע מהרשת מעת לעת, כל עוד הרשת מחוברת .</li>
+                            </ul>
                         </div>
 
-                        <!-- Terms 1 -->
-                        <section id="terms-1" class="term-card glass-card rounded-2xl p-6 sm:p-8 transition-all">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-500/10 text-brand-500 font-bold text-sm border border-brand-500/20">1</span>
-                                <h2 class="text-xl font-bold text-white">הגדרות</h2>
-                            </div>
-                            <div class="text-slate-300 space-y-2 leading-relaxed text-sm sm:text-base">
-                                <p><strong>1.1. החברה:</strong> לומניק 037779709 מושב ישע 244 (להלן: "החברה").</p>
-                                <p><strong>1.2. השירות:</strong> פלטפורמת Lumenic ליצירת תוכן שיווקי בסיוע בינה מלאכותית, על כל רכיביה, ובכלל זה האתר, האפליקציות, התכונות והשירותים הנלווים (להלן: "השירות").</p>
-                                <p><strong>1.3. האתר:</strong> אתר האינטרנט בכתובת lumenic-ai.com וכל דף או תת דומיין שלו (להלן: "האתר").</p>
-                                <p><strong>1.4. האפליקציה:</strong> אפליקציית Lumenic למכשירי iOS ו-Android (להלן: "האפליקציה").</p>
-                                <p><strong>1.5. משתמש:</strong> מי שנרשם לשירות או משתמש בו. כאשר ההרשמה נעשית בשם עסק, המשתמש הוא הישות המשפטית שבשמה נעשתה ההרשמה (להלן: "המשתמש").</p>
-                                <p><strong>1.6. חשבון:</strong> חשבון המשתמש בשירות (להלן: "החשבון").</p>
-                                <p><strong>1.7. תוכן משתמש:</strong> כל תוכן שהמשתמש מעלה, מוסר או מזין לשירות, ובכלל זה קליפים, תמונות, אודיו, לוגו, טקסט, פרטי פרופיל ופרטי עסק (להלן: "תוכן המשתמש").</p>
-                                <p><strong>1.8. תוצרים:</strong> כל תוכן שהשירות מפיק עבור המשתמש, ובכלל זה רעיונות, תסריטים, כתוביות, קריינות, תמונות, גרסאות וידאו, תוכניות תוכן וניתוחים (להלן: "התוצרים").</p>
-                                <p><strong>1.9. קרדיטים:</strong> יחידות שימוש בשירות, המוקצות במסגרת תוכנית או נרכשות בנפרד (להלן: "הקרדיטים").</p>
-                                <p><strong>1.10. תוכנית:</strong> מסלול שימוש בשירות, בחינם או בתשלום (להלן: "התוכנית").</p>
-                                <p><strong>1.11. דף התמחור:</strong> הדף באתר או באפליקציה שבו מפורטים התוכניות, מחיריהן, הקרדיטים הכלולים בהן ותנאיהן (להלן: "דף התמחור").</p>
-                                <p><strong>1.12. חנות אפליקציות:</strong> Apple App Store או Google Play (להלן: "חנות האפליקציות").</p>
-                                <p><strong>1.13. רשת מחוברת:</strong> רשת חברתית או שירות של צד שלישי שהמשתמש חיבר לחשבונו, כגון Facebook ו-Instagram של Meta, YouTube ושירותים אחרים של Google, ו-TikTok (להלן: "רשת מחוברת").</p>
-                                <p><strong>1.14. מדיניות הפרטיות:</strong> מדיניות הפרטיות של החברה, כפי שתפורסם באתר ובאפליקציה ותעודכן מעת לעת (להלן: "מדיניות הפרטיות").</p>
-                                <p><strong>1.15. תנאי השימוש:</strong> תקנון זה (להלן: "התקנון"), מדיניות הפרטיות וכן כל הוראה של החברה בנוגע לשימוש בשירות, באתר או באפליקציה (להלן: "תנאי השימוש").</p>
-                            </div>
-                        </section>
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-white">8.2 ניתוק רשת וביטול ההרשאה </h3>
+                            <p>ניתן לנתק רשת בכל עת בהגדרות החשבון בשירות. בניתוק נשלחת לרשת בקשה לביטול ההרשאה, אסימון הגישה נמחק, והמידע שנקרא מאותה רשת נמחק בתוך 7 ימים. ניתן גם לבטל את ההרשאה ישירות בהגדרות הרשת :</p>
+                            <ul class="list-disc list-inside space-y-1 pr-2">
+                                <li>Facebook ו-Instagram: בהגדרות החשבון, תחת "אפליקציות ואתרים" .</li>
+                                <li>Google ו-YouTube: בדף הרשאות האבטחה של Google, בכתובת https://security.google.com/settings/security/permissions </li>
+                                <li>TikTok: בהגדרות החשבון, תחת "Manage app permissions" .</li>
+                            </ul>
+                            <p>אם ביטלת את ההרשאה ישירות בהגדרות הרשת, המידע שנקרא מאותה רשת יימחק בתוך 30 יום לכל היותר .</p>
+                        </div>
 
-                        <!-- Terms 2 -->
-                        <section id="terms-2" class="term-card glass-card rounded-2xl p-6 sm:p-8 transition-all">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-500/10 text-brand-500 font-bold text-sm border border-brand-500/20">2</span>
-                                <h2 class="text-xl font-bold text-white">פרשנות</h2>
-                            </div>
-                            <div class="text-slate-300 space-y-2 leading-relaxed text-sm sm:text-base">
-                                <p><strong>2.1.</strong> המבוא לתקנון זה יפורש כמקשה אחת עם יתר חלקי התקנון.</p>
-                                <p><strong>2.2.</strong> הכותרות וכותרות המשנה בתקנון חסרי תוקף פרשני והם מובאים לנוחות הקריאה בלבד.</p>
-                                <p><strong>2.3.</strong> ככל שהאפליקציה הורדה או נרכשה באמצעות חנות אפליקציות, השימוש בה כפוף גם לתנאי אותה חנות. תנאי התקנון לא יפורשו באופן הסותר את כללי השימוש של חנות האפליקציות.</p>
-                                <p><strong>2.4.</strong> השימוש בשירות כפוף גם למדיניות הפרטיות ולתנאי התוכנית שבדף התמחור, המהווים חלק מתנאי השימוש. בסתירה בין התקנון לבין תנאי התוכנית שבדף התמחור, יגברו תנאי התוכנית. בסתירה בין התקנון לבין מדיניות הפרטיות, תגבר מדיניות הפרטיות.</p>
-                            </div>
-                        </section>
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-white">8.3 YouTube ו-Google </h3>
+                            <p>השירות משתמש בשירותי ה-API של YouTube (YouTube API Services). בחיבור חשבון YouTube אתה מסכים גם לתנאי השימוש של YouTube, בכתובת https://www.youtube.com/t/terms. על המידע שבידי Google חלה מדיניות הפרטיות של Google, בכתובת http://www.google.com/policies/privacy </p>
+                            <p>השימוש של Lumenic במידע שמתקבל מממשקי Google, והעברתו לגורמים אחרים, יעמדו במדיניות נתוני המשתמש של שירותי ה-API של Google (Google API Services User Data Policy), לרבות דרישות השימוש המוגבל (Limited Use). Lumenic's use and transfer of information received from Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements .</p>
+                            <p>נתוני YouTube שאינם נתוני Analytics או נתונים סטטיסטיים מתעדכנים או נמחקים כל 30 יום .</p>
+                        </div>
 
-                        <!-- Terms 3 -->
-                        <section id="terms-3" class="term-card glass-card rounded-2xl p-6 sm:p-8 transition-all">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-500/10 text-brand-500 font-bold text-sm border border-brand-500/20">3</span>
-                                <h2 class="text-xl font-bold text-white">הצדדים וקבלת תנאי התקנון</h2>
-                            </div>
-                            <div class="text-slate-300 space-y-2 leading-relaxed text-sm sm:text-base">
-                                <p><strong>3.1.</strong> התקנון מהווה הסכם מחייב בין המשתמש לבין החברה. אם המשתמש פועל בשם עסק, האדם המאשר את התנאים מצהיר שהוא מוסמך לחייב את העסק, והעסק הוא הצד לתנאים.</p>
-                                <p><strong>3.2.</strong> מובהר כי Apple Inc, Google LLC, או כל חברה המפעילה חנות אפליקציות או רשת מחוברת (לרבות Meta) אינם צד לתקנון ולא יחובו בכל חובה מחמתו. החברה, ולא Apple או Google, אחראית לאפליקציה ולתוכנה.</p>
-                                <p><strong>3.3.</strong> עם זאת, ככל והאפליקציה הורדה מחנות האפליקציות של Apple, תהא זו וחברות הבת שלה למוטבות צד שלישי של התקנון.</p>
-                                <p><strong>3.4.</strong> התקנון מחייב עם תחילת ההרשמה או השימוש בשירות, המוקדם מביניהם. מובהר כי החברה מתעדת את גרסת התקנון בעת שאושרה ע"י המשתמש ואת מועד האישור.</p>
-                            </div>
-                        </section>
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-white">8.4 מחיקת נתונים שהתקבלו מ-Facebook ומ-Instagram </h3>
+                            <p>כדי למחוק את הנתונים שהתקבלו מחשבון Facebook או Instagram שלך, נתק את החשבון בהגדרות החשבון ב-Lumenic, או שלח בקשה לכתובת privacy@lumenic-ai.com מכתובת הדוא"ל הרשומה בחשבונך. הנתונים יימחקו בתוך 7 ימים, ונשלח לך אישור על השלמת המחיקה. אם ביטלת את ההרשאה בהגדרות Facebook או Instagram, הנתונים יימחקו כמפורט בסעיף 8.2 .</p>
+                        </div>
 
-                        <!-- Terms 4 -->
-                        <section id="terms-4" class="term-card glass-card rounded-2xl p-6 sm:p-8 transition-all">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-500/10 text-brand-500 font-bold text-sm border border-brand-500/20">4</span>
-                                <h2 class="text-xl font-bold text-white">כשירות, הרשמה וחשבון</h2>
-                            </div>
-                            <div class="text-slate-300 space-y-2 leading-relaxed text-sm sm:text-base">
-                                <p><strong>4.1.</strong> השימוש בשירות מותר למי שמלאו לו 13 שנים. במדינות שבהן הדין קובע גיל גבוה יותר להסכמה לשימוש בשירותים מקוונים או לעיבוד מידע אישי, יחול הגיל הגבוה, כמפורט בתנאים המשלימים לפי אזור שלהלן.</p>
-                                <p><strong>4.2.</strong> בעת ההרשמה יתבקש המשתמש למסור את תאריך לידתו. הרשמה של מי שטרם מלאו לו 13 שנים תיחסם. אם יתברר לחברה שמשתמש טרם מלאו לו 13 שנים, היא תסגור את חשבונו ותמחק את המידע עליו, בהתאם למדיניות הפרטיות.</p>
-                                <p><strong>4.3.</strong> משתמש שטרם מלאו לו 18 שנים, או שטרם הגיע לגיל הבגירות במדינת מגוריו אם הוא גבוה מ-18, רשאי להשתמש בשירות רק בהסכמת הורהו או האפוטרופוס שלו. ההורה או האפוטרופוס יהא אחראי לשימוש הקטין בשירות ולעמידתו בתנאים.</p>
-                                <p><strong>4.4.</strong> המשתמש מצהיר שהפרטים שמסר על גילו נכונים, ושהוא כשיר להתקשר בתנאים או שקיבל את ההסכמה הנדרשת לכך.</p>
-                                <p><strong>4.5.</strong> דירוג הגיל של האפליקציה בחנויות האפליקציות מתייחס לתוכן האפליקציה בלבד, ואינו קובע את הכשירות להתקשר בתנאים.</p>
-                                <p><strong>4.6.</strong> רכישה בשירות בידי קטין טעונה הסכמת הורהו או האפוטרופוס שלו ואישור בעל אמצעי התשלום. מובהר כי אין באמור בתקנון זה כדי להגביל תחולת תנאים נוספים שעשויים לחול על רכישה או שימוש, כגון תנאי חנויות האפליקציות, אילו תיעשה פעולה מחייבת באמצעותם.</p>
-                                <p><strong>4.7.</strong> המשתמש מצהיר שאינו נמצא במדינה הנתונה לאמברגו של ממשלת ארצות הברית או שהוגדרה בידה כמדינה תומכת טרור, ושאינו כלול ברשימת גורמים אסורים או מוגבלים של ממשלת ארצות הברית.</p>
-                                <p><strong>4.8.</strong> השירות מופעל מישראל ומוצע בה, ועשוי להיות מוצע במדינות נוספות. משתמש המשתמש בשירות מחוץ לישראל אחראי לעמידה בדין החל במקום שבו הוא נמצא. על משתמשים במדינות המפורטות בתנאים המשלימים לפי אזור יחולו גם התנאים המשלימים, ובסתירה הם יגברו. החברה רשאית להגביל את הגישה לשירות ממדינות מסוימות.</p>
-                                <p><strong>4.9.</strong> בעת ההרשמה ימסור המשתמש פרטים נכונים, מלאים ועדכניים, ויהא אחראי על עדכונם לפי הצורך. ההרשמה אפשרית באמצעות כתובת דוא״ל וסיסמה, או באמצעות חשבון Apple, Facebook או Instagram.</p>
-                                <p><strong>4.10.</strong> החשבון אישי. אין להעביר את החשבון לאחר, לשתף את פרטי ההתחברות או לאפשר שימוש משותף בחשבון. חשבון שנפתח בשם עסק שייך לעסק, ואינו ניתן להעברה לישות אחרת שאינה פועלת בשם העסק.</p>
-                                <p><strong>4.11.</strong> מובהר כי משתמש שהוא עסק יראה כאחראי לכל פעולה או מחדל של מי שמשתמש בחשבון בשמו, כאילו נעשו בידי העסק עצמו.</p>
-                                <p><strong>4.12.</strong> המשתמש אחראי לשמירת סודיות פרטי ההתחברות ולכל פעולה שנעשית בחשבונו. המשתמש יודיע לחברה מיד על חשד לשימוש בלתי מורשה בחשבון, בכתובת <a href="mailto:security@lumenic-ai.com" class="text-brand-500 hover:underline">security@lumenic-ai.com</a>, בלי לשלוח סיסמה או טוקן.</p>
-                            </div>
-                        </section>
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-bold text-white">8.5 TikTok </h3>
+                            <p>Lumenic אינה קשורה ל-TikTok, ל-Meta, ל-Google או ל-Apple, ואינה פועלת מטעמן. אנו משתמשים במידע מ-TikTok רק להצגה, לניתוח ולהתאמה אישית עבורך, ואיננו משתפים מידע מזהה שהתקבל ממנה עם גורם אחר בלי הסכמתך .</p>
+                        </div>
+                    </div>
+                </div>
 
-                        <!-- Terms 5 -->
-                        <section id="terms-5" class="term-card glass-card rounded-2xl p-6 sm:p-8 transition-all">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-brand-500/10 text-brand-500 font-bold text-sm border border-brand-500/20">5</span>
-                                <h2 class="text-xl font-bold text-white">השירות</h2>
-                            </div>
-                            <div class="text-slate-300 space-y-2 leading-relaxed text-sm sm:text-base">
-                                <p><strong>5.1.</strong> השירות הוא סטודיו מבוסס בינה מלאכותית ליצירת תוכן שיווקי. בין היתר, השירות מציע רעיונות תוכן, תוכנית תוכן חודשית, כתיבת תסריטים, כתוביות, קריינות סינתטית, יצירת תמונות, עריכה והרכבה של גרסאות וידאו מתוך תוכן המשתמש, וניתוח ביצועים מהרשתות המחוברות. היקף התכונות בכל תוכנית מפורט בדף התמחור.</p>
-                                <p><strong>5.2.</strong> התוצרים מופקים בסיוע מודלים וכלים מבוססי בינה מלאכותית של ספקי צד שלישי. לשם כך, תוכן המשתמש ונתונים הדרושים להפקה מועברים לעיבוד אצל ספקים אלה ועשויים להיות כפופים לתנאי השימוש שלהם. המשתמש מתחייב לעמוד גם במדיניות השימוש של ספקי ה-AI, כפי שהיא מפורסמת אצלם מעת לעת, ככל שהיא חלה על השימוש בתכונות המבוססות עליהם.</p>
-                                <p><strong>5.3.</strong> המשתמש אחראי לכך שיש בידו כל הזכויות בקלט שהוא מזין לתכונות המבוססות על ספקי שירותי הבינה המלאכותית, ולא ישתמש בהן באופן המפר את תנאי הספקים או זכויות של אחרים.</p>
-                                <p><strong>5.4.</strong> תכונות המבוססות על ספקי צד שלישי עשויות להשתנות, להיות מוגבלות או להיפסק בהתאם להחלטות אותם הספקים. החברה אינה אחראית לזמינות שירותי הספקים, לתקלות בהם או לשביעות רצון המשתמשים מתוצרי אותם ספקים.</p>
-                                <p><strong>5
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">9. מסירת מידע לצדדים שלישיים</h2>
+                    <div class="space-y-2">
+                        <p>איננו מוכרים את המידע האישי שלך, ואיננו משתפים אותו לצורכי פרסום או מעקב. אנו מעבירים מידע רק לגורמים הבאים ולמטרות הבאות :</p>
+                        <ul class="list-disc list-inside space-y-2 pr-2">
+                            <li>ספקי בינה מלאכותית: מעבדים את התוכן ואת המידע המפורטים בסעיף 6.1, לצורך הפקת התוצרים, מטעמנו ולפי הוראותינו .</li>
+                            <li>ספק אחסון בענן: מאחסן את מאגר המידע ואת הקבצים, מטעמנו ולפי הוראותינו .</li>
+                            <li>ספק שליחת דוא"ל: שולח הודעות שירות ודיוור, ולשם כך מעבד את כתובת הדוא"ל ואת תוכן ההודעות, מטעמנו ולפי הוראותינו .</li>
+                            <li>ספק סליקה באתר: מעבד את פרטי התשלום ואת פרטי החיוב, לצורך ביצוע התשלום, הפקת החשבונית ועמידה בדיני המס. ספק הסליקה פועל כמוכר הרשום (merchant of record) וכבעל שליטה עצמאי, ומדיניות הפרטיות שלו, המוצגת בעמוד התשלום, חלה על מידע זה .</li>
+                            <li>חנויות האפליקציות: מעבדות את פרטי התשלום ברכישה מתוך האפליקציה, כבעלות שליטה עצמאיות ולפי תנאיהן .</li>
+                            <li>הרשתות החברתיות ושירותי הכניסה לחשבון: Meta, Google, TikTok ו-Apple מעבירות אלינו מידע לפי בקשתך ובאישורך, כמפורט בסעיפים 3.2 ו-3.3. על המידע שבידיהן חלה מדיניות הפרטיות שלהן .</li>
+                            <li>רשויות ודרישות הדין: כאשר הדין מחייב זאת, לפי צו שיפוטי או דרישה של רשות מוסמכת, או כשהדבר דרוש להגנה על זכויותינו, על זכויות המשתמשים או על שלום הציבור .</li>
+                            <li>שינוי מבני: במקרה של מיזוג, רכישה או מכירת פעילות, המידע עשוי לעבור לגורם הנעבר, בתנאי שימשיך לנהוג בו לפי מדיניות זו .</li>
+                        </ul>
+                        <p>כל צד שלישי שמקבל מאיתנו מידע אישי מחויב להעניק לו הגנה ברמה דומה להגנה המפורטת במדיניות זו .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">10. העברת מידע אל מחוץ לישראל</h2>
+                    <div class="space-y-2">
+                        <p>המידע שלך נשמר ומעובד גם מחוץ לישראל. שרתי האחסון שלנו ושרתי ספק הדוא"ל ממוקמים במדינות האיחוד האירופי, ורוב ספקי הבינה המלאכותית, ספק הסליקה, חנויות האפליקציות והרשתות החברתיות פועלים בארצות הברית ובמדינות נוספות. העברת המידע נעשית בהתאם להוראות הדין, לרבות תקנות הגנת הפרטיות (העברת מידע למאגרי מידע שמחוץ לגבולות המדינה), התשס"א-2001 .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">11. הודעות ודיוור</h2>
+                    <ul class="list-disc list-inside space-y-2 pr-2">
+                        <li>הודעות שירות: נשלח אליך בדוא"ל, בתוך השירות ובהתראות Push הודעות הנוגעות לחשבון, לשירות, לאבטחה ולחיוב. הודעות אלה הן חלק מהשירות .</li>
+                        <li>התראות Push: נשלחות רק אם אישרת זאת בהגדרות המכשיר, ולמטרות שירות בלבד. ניתן לבטל אותן בכל עת בהגדרות המכשיר, והשימוש בשירות אינו מותנה בהן .</li>
+                        <li>דיוור שיווקי: נשלח אליך דבר פרסומת בדוא"ל רק אם נתת לכך הסכמה מפורשת, בעת ההרשמה או בהגדרות החשבון. ההסכמה אינה תנאי לשימוש בשירות. ניתן להסיר את עצמך מרשימת הדיוור בכל עת, באמצעות הקישור להסרה שבכל הודעה, בהגדרות החשבון או בפנייה אלינו. ההסרה אינה מפסיקה את הודעות השירות .</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">12. עוגיות באתר</h2>
+                    <div class="space-y-2">
+                        <p>באתר נעשה שימוש בעוגיית סשן חיונית בלבד, הדרושה לכניסה לחשבון ולתפקוד האתר. איננו משתמשים בעוגיות לניתוח שימוש, לפרסום או למעקב, ואיננו משלבים באתר כלים של צדדים שלישיים לצרכים אלה. ניתן לחסום עוגיות בהגדרות הדפדפן, אך חסימת העוגייה החיונית תמנע את הכניסה לחשבון .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">13. קטינים</h2>
+                    <div class="space-y-2">
+                        <p>השירות מיועד למי שמלאו לו 13 שנים. בעת ההרשמה נבקש את תאריך הלידה, והרשמה של מי שטרם מלאו לו 13 שנים תיחסם. מי שמלאו לו 13 שנים וטרם מלאו לו 18 שנים רשאי להשתמש בשירות רק בהסכמת הורהו או האפוטרופוס שלו, ובהרשמה לשירות הוא מצהיר כי קיבל הסכמה זו. אם נודע לנו כי נרשם לשירות מי שטרם מלאו לו 13 שנים, נסגור את חשבונו ונמחק את המידע עליו .</p>
+                        <p>אם אתה מעלה לשירות תוכן שמופיעים בו אנשים אחרים, לרבות קטינים, אתה אחראי לקבל את הסכמתם, ובמקרה של קטין את הסכמת הורהו או האפוטרופוס שלו, כמפורט בתקנון .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+                    <h2 class="text-xl font-bold text-white">14. כמה זמן אנו שומרים את המידע</h2>
+                    <p>אנו שומרים מידע רק לתקופה הדרושה למטרות שלשמן נאסף, או לתקופה ארוכה יותר אם הדין מחייב זאת או מתיר זאת .</p>
+                    
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-bold text-white">א. בזמן שהחשבון פעיל </h3>
+                        <div class="overflow-x-auto rounded-xl border border-slate-800">
+                            <table class="w-full text-right text-xs sm:text-sm border-collapse">
+                                <thead>
+                                    <tr class="border-b border-slate-700 bg-slate-800/70">
+                                        <th class="p-3 text-white w-1/3">סוג המידע</th>
+                                        <th class="p-3 text-white">תקופת השמירה ונקודת ההתחלה</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-800">
+                                    <tr>
+                                        <td class="p-3 font-medium">פרטי חשבון ופרטי העסק</td>
+                                        <td class="p-3 text-slate-400">ממועד פתיחת החשבון ועד בקשת מחיקתו </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">תוכן שהעלית ותוצרים</td>
+                                        <td class="p-3 text-slate-400">30 יום ממועד ההעלאה או ההפקה, ולכל המאוחר עד בקשת מחיקת החשבון </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">נתונים מהרשתות המחוברות</td>
+                                        <td class="p-3 text-slate-400">ממועד החיבור ועד ניתוק הרשת. נתוני YouTube שאינם נתוני Analytics או נתונים סטטיסטיים: 30 יום ממועד הקריאה, אלא אם רועננו </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">פרופיל אישי והתאמה אישית</td>
+                                        <td class="p-3 text-slate-400">ממועד יצירתם ועד בקשת מחיקת החשבון </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">לוגים חיוניים לתפעול המאגר ואבטחתו</td>
+                                        <td class="p-3 text-slate-400">24 חודשים ממועד יצירת כל רשומה (בהתאם לתקנה 10(ד) לתקנות הגנת הפרטיות (אבטחת מידע), התשע"ז-2017) </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">לוגים אחרים</td>
+                                        <td class="p-3 text-slate-400">6 חודשים ממועד יצירת כל רשומה </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-bold text-white">ב. לאחר ניתוק רשת או לאחר בקשה למחיקת החשבון </h3>
+                        <div class="overflow-x-auto rounded-xl border border-slate-800">
+                            <table class="w-full text-right text-xs sm:text-sm border-collapse">
+                                <thead>
+                                    <tr class="border-b border-slate-700 bg-slate-800/70">
+                                        <th class="p-3 text-white w-1/3">סוג המידע</th>
+                                        <th class="p-3 text-white">תקופת השמירה ונקודת ההתחלה</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-800">
+                                    <tr>
+                                        <td class="p-3 font-medium">כל המידע, לצורך ייצוא ושחזור</td>
+                                        <td class="p-3 text-slate-400">30 יום ממועד בקשת המחיקה. בתום התקופה המידע נמחק מהמערכות הפעילות </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">נתונים מהרשתות המחוברות</td>
+                                        <td class="p-3 text-slate-400">עד 7 ימים ממועד ניתוק הרשת או ממועד בקשת המחיקה, המוקדם מביניהם </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">גיבויים</td>
+                                        <td class="p-3 text-slate-400">עד 90 יום ממועד המחיקה מהמערכות הפעילות </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">חשבוניות ונתוני חיוב</td>
+                                        <td class="p-3 text-slate-400">7 שנים מתום שנת המס שבה הופקו </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">תיעוד הסכמות</td>
+                                        <td class="p-3 text-slate-400">7 שנים ממועד ביטול ההסכמה או ממועד סגירת החשבון, המאוחר מביניהם </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">תיעוד אישור התקנון והמדיניות</td>
+                                        <td class="p-3 text-slate-400">7 שנים ממועד סגירת החשבון </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">תיעוד בקשות מחיקה ומימוש זכויות</td>
+                                        <td class="p-3 text-slate-400">7 שנים ממועד סיום הטיפול בבקשה </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">יומן משלוח דיוור (נמען, מועד ומזהה ההודעה)</td>
+                                        <td class="p-3 text-slate-400">7 שנים ממועד המשלוח </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">רשימת הסרה מדיוור</td>
+                                        <td class="p-3 text-slate-400">7 שנים ממועד ההסרה </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">מזהה מינימלי של חשבון שנסגר בשל הפרת התקנון</td>
+                                        <td class="p-3 text-slate-400">7 שנים ממועד סגירת החשבון </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">מידע הקשור לתביעה, למחלוקת או לדרישה של רשות</td>
+                                        <td class="p-3 text-slate-400">7 שנים ממועד סיום ההליך </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">לוגים תפעוליים</td>
+                                        <td class="p-3 text-slate-400">12 חודשים ממועד יצירת כל רשומה, גם לאחר סגירת החשבון </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-medium">מידע שהוסר ממנו הזיהוי</td>
+                                        <td class="p-3 text-slate-400">ללא הגבלה. לא כולל מידע שמקורו ב-YouTube. מידע שמקורו ב-Meta Ads נשמר רק בצורה מצרפית ואנונימית </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <p>לאחר מחיקת החשבון נשמר רק המידע המפורט בטבלה ב, למטרות של עמידה בדין, הוכחת העמידה בדין, הגנה מפני תביעות, אבטחה ומניעת הונאה .</p>
+                        <p>[הערה: (1) נקודות סיכון מול החנויות: (א) Google קובעת במפורש שהקפאת חשבון אינה מחיקה, ו-Apple דורשת מחיקה ולא השבתה. תקופת חסד של 30 יום מקובלת בפרקטיקה, אך לא מצאנו לה אישור מפורש בכללים. מומלץ שבתקופה זו החשבון לא יהיה פעיל, שמועד המחיקה יוצג למשתמש ושיישלח אליו אישור כשהמחיקה הושלמה. (ב) הרישומים הנשמרים 7 שנים לאחר המחיקה נכנסים לחריג של ציות לדין שבכללי Google, אך הנוסח של Apple צר יותר ומתיר לשמור רק מה ש"legally required to maintain". (ג) לוגים הנשמרים 12 חודשים לאחר מחיקת החשבון נכנסים לחריג האבטחה של Google, אך מול Apple הם מידע המשויך למשתמש בלי חובה שבדין. ניתן לצמצם את הסיכון בניתוק הלוגים מזהות המשתמש בעת המחיקה. להערכתנו הסיכון בשלוש הנקודות נמוך.] </p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">15. מחיקת החשבון</h2>
+                    <div class="space-y-2">
+                        <p>ניתן למחוק את החשבון בכל עת :</p>
+                        <ul class="list-disc list-inside space-y-1 pr-2">
+                            <li>באפליקציה: בהגדרות החשבון https:// lumenic-ai.com/en/profile </li>
+                            <li>באתר או בדוא"ל: באמצעות https:// lumenic-ai.com/en/profile או בפנייה לכתובת privacy@lumenic-ai.com, בלי צורך להתקין את האפליקציה .</li>
+                        </ul>
+                        <p>מה קורה לאחר הבקשה :</p>
+                        <ul class="list-disc list-inside space-y-1 pr-2">
+                            <li>הנתונים מהרשתות המחוברות נמחקים בתוך 7 ימים .</li>
+                            <li>במשך 30 יום תוכל לייצא את התוצרים שהפקת בשירות, או לבקש לשחזר את החשבון .</li>
+                            <li>בתום 30 הימים המידע יימחק מהמערכות הפעילות, ובתוך 90 יום נוספים גם מהגיבויים. נשלח לך אישור על השלמת המחיקה .</li>
+                            <li>מידע מסוים יישמר גם לאחר המחיקה, לתקופות ולמטרות המפורטות בטבלה ב בסעיף 14 .</li>
+                        </ul>
+                        <p>מחיקת החשבון אינה מבטלת מנוי שנרכש דרך Apple או Google. יש לבטל אותו בהגדרות המנויים בחנות, אחרת החיוב עלול להימשך .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">16. אבטחת מידע</h2>
+                    <div class="space-y-2">
+                        <p>אנו נוקטים אמצעים מקובלים להגנה על המידע, ובכלל זה הצפנה בהעברה, הצפנה באחסון של אסימוני גישה, של מדיה ושל גיבויים, והגבלת הגישה למידע לעובדים הזקוקים לה לצורך תפקידם. עם זאת, אין אפשרות להבטיח הגנה מוחלטת מפני חדירה או שימוש לרעה .</p>
+                        <p>אם יתרחש אירוע אבטחה העלול לפגוע במידע שלך, נפעל בהתאם לדין, לרבות דיווח לרשות להגנת הפרטיות ולמשתמשים, ככל שהדין מחייב זאת. ניתן לדווח לנו על חולשת אבטחה או על אירוע אבטחה בכתובת security@lumenic-ai.com. אין לכלול בדיווח סיסמאות או אסימוני גישה .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">17. הזכויות שלך</h2>
+                    <div class="space-y-2">
+                        <p>בהתאם לחוק הגנת הפרטיות, עומדות לך הזכויות הבאות :</p>
+                        <ul class="list-disc list-inside space-y-1 pr-2">
+                            <li>עיון: לעיין במידע עליך המוחזק במאגר המידע שלנו .</li>
+                            <li>תיקון ומחיקה: לבקש לתקן או למחוק מידע עליך שאינו נכון, שלם, ברור או מעודכן .</li>
+                            <li>מחיקת החשבון: כמפורט בסעיף 15 .</li>
+                            <li>ביטול הסכמות: כמפורט בסעיף 7 .</li>
+                            <li>ניתוק רשתות: כמפורט בסעיף 8.2 .</li>
+                            <li>הסרה מדיוור: לדרוש שהמידע עליך לא ישמש לדיוור שיווקי, כמפורט בסעיף 11 .</li>
+                        </ul>
+                        <p>כדי לממש זכויות אלה, פנה אלינו בכתובת privacy@lumenic-ai.com .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">18. שינויים במדיניות</h2>
+                    <div class="space-y-2">
+                        <p>אנו עשויים לעדכן מדיניות זו מעת לעת, בין היתר בשל שינויים בשירות, בספקים או בדין .</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                    <h2 class="text-xl font-bold text-white">19. יצירת קשר</h2>
+                    <div class="space-y-2">
+                        <p>לכל שאלה בנוגע למדיניות זו או למידע שלך, ניתן לפנות אלינו בכתובת privacy@lumenic-ai.com .</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    </main>
+    <footer class="border-t border-slate-800/80 bg-slate-950 py-8 mt-12 text-center text-slate-500 text-sm">
+        <p>© 2026 Lumenic. כל הזכויות שמורות.</p>
+    </footer>
+</body>
+</html>
